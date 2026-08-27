@@ -1,0 +1,5 @@
+/* ── RTL Style Adjustments for Hyper PWA Connectivity Notification ── */
+.rtl #hypwa-connectivity-notice {
+    left: auto;
+    right: 20px;
+}

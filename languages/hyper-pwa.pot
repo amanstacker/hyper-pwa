@@ -1,0 +1,1589 @@
+# Copyright (C) 2026 Hyper PWA
+# This file is distributed under the same license as the Hyper PWA plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Hyper PWA 5.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hyper-pwa\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-23 12:21:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: Custom PHP Parser\n"
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:48
+msgid "Deactivating Hyper PWA"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:55
+msgid "Help us improve — why are you deactivating the plugin?"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:59
+msgid "The deactivation is temporary"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:63
+msgid "I don\\'t need PWA functionality anymore"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:67
+msgid "Needed feature not available"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:71
+msgid "Facing technical difficulties"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:75
+msgid "Switched to a different plugin"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:79
+msgid "Other reason"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:83
+msgid "Heads up: "
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:84
+msgid "Clicking \"Submit & Deactivate\" will email your feedback to the developer. No site data is collected. Click \"Skip & Deactivate\" to deactivate without sending feedback."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:88
+msgid "Kindly describe the feature you found missing."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:89
+msgid "Kindly provide details about the difficulties you\\'re facing."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:90
+msgid "If you don\\'t mind, name the plugin you switched to."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:91
+msgid "Kindly provide a brief explanation."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:100
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:101
+msgid "Skip & Deactivate"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:102
+msgid "Don\\'t Deactivate"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/feedback/feedback.php:129
+msgid "Nonce Not Verified"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:56
+msgid "All fields are required."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:62
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:70
+msgid "Hyper PWA Support Ticket - %s"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:111
+msgid "Your support ticket has been submitted successfully."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:116
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:125
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:163
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:176
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:193
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:274
+msgid "You do not have permission to perform this action."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:132
+msgid "Invalid data received."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:149
+msgid "Settings saved, but Hyper PWA was unable to write the static files to the root directory due to permission restrictions. Please check your folder permissions or use Dynamic serving."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:154
+msgid "Settings saved successfully."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:168
+msgid "Settings reset to defaults."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:182
+msgid "Settings exported successfully."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:199
+msgid "No import data provided."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:205
+msgid "Invalid JSON file. Please upload a valid settings export."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:220
+msgid "Settings imported successfully."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:227
+msgid "You do not have permission."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:285
+msgid "Please activate the PWA plugin to continue with the migration."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:289
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:300
+msgid "Settings migrated successfully."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:296
+msgid "Please activate the Super PWA plugin to continue with the migration."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:313
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:381
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:428
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:545
+msgid "Unauthorized user."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:318
+msgid "API Key is required."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:340
+msgid "Connection failed: "
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:368
+msgid "Connected successfully."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:372
+msgid "Invalid API Key or server error."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:421
+msgid "Disconnected successfully."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:433
+msgid "Not connected to hyperpushx.com."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:442
+msgid "Title and Message are required."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:477
+msgid "Could not reach hyperpushx.com. Please check your internet connection."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:488
+msgid "Notification sent successfully!"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:490
+msgid "Notification dispatched and delivered successfully!"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:493
+msgid "Notification sent. Status: %s"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:511
+msgid "Access denied. Your plan may have expired or a limit has been reached. Please check your hyperpushx.com account."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:516
+msgid "Invalid API Key. Please reconnect your site to hyperpushx.com."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:522
+msgid "The notification data is invalid. Please check the title, message, and URL fields."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:527
+msgid "Too many requests. Please wait a moment before sending another notification."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:535
+msgid "Unexpected error from hyperpushx.com (HTTP %d). Please try again."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/ajax/class-hypwa-settings-ajax.php:565
+msgid "Failed to fetch statistics."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:135
+msgid "Documentation"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:136
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:174
+msgid "Support"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:145
+msgid "Activate Your License"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:147
+msgid "Hyper PWA Premium is installed, but your license key isn't activated yet. Activate it to unlock all premium features."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:150
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:103
+msgid "Activate License"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:167
+msgid "App Basics"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:168
+msgid "Core Features"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:169
+msgid "Premium Features"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:170
+msgid "Advanced"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:171
+msgid "Tools"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:172
+msgid "Compatibility"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:173
+msgid "Migration"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:255
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:537
+msgid "Migrate from SuperPWA"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:256
+msgid " Seamlessly transfer your SuperPWA settings, design preferences, and configuration data to Hyper PWA without manual setup."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:258
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:286
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:966
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:31
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:54
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:76
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:18
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:41
+msgid "Learn more"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:266
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:294
+msgid "Migrating..."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:269
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:297
+msgid "Start Migration"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:283
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:544
+msgid "Migrate from PWAforWP"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:284
+msgid "Seamlessly transfer your PWAforWP settings, design preferences, and configuration data to Hyper PWA without manual setup."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:323
+msgid "Ticket Subject"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:325
+msgid "Issue Subject"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:330
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:332
+msgid "Your Email"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:337
+msgid "Detailed Description"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:340
+msgid "Describe your issue..."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:350
+msgid "Sending..."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:354
+msgid "Submit Ticket"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:364
+msgid "Quick Knowledge Base"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:369
+msgid "Installation Guide"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:376
+msgid "App Basics Knowledge Base"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:383
+msgid "Core Features Knowledge Base"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:391
+msgid "Premium Features Knowledge Base"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:398
+msgid "Tools Knowledge Base"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:405
+msgid "Compatibility Knowledge Base"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:412
+msgid "Migration Knowledge Base"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:449
+msgid "1 Issue"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:449
+msgid "%d Issues"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:453
+msgid "PWA Health"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:458
+msgid "Ensure your PWA is properly configured and working as expected."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:465
+msgid "HTTPS"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:468
+msgid "Enabled"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:468
+msgid "Disabled"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:477
+msgid "Manifest"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:480
+msgid "Valid"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:480
+msgid "Invalid"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:489
+msgid "Service Worker"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:492
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1171
+msgid "Active"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:492
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:505
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:518
+msgid "Missing"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:502
+msgid "App Icon"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:505
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:518
+msgid "Configured"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:515
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:127
+msgid "Offline Page"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:529
+msgid "Quick Links"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:555
+msgid "Reset Settings"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:564
+msgid "Enjoying Hyper PWA?"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:567
+msgid "If you find our plugin helpful, please consider leaving a 5-star review. It helps us keep improving!"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:572
+msgid "Leave a Review"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:579
+msgid "Get Support"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:599
+msgid "Upgrade to Hyper PWA Premium"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:600
+msgid "Unlock all premium features like Offline Forms, Custom Install App, and priority support."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:604
+msgid "Upgrade Now"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:614
+msgid "Hyper PWA Premium is Active"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:615
+msgid "Thank you for supporting Hyper PWA! You have access to all premium features and future updates."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:634
+msgid "Saving..."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:636
+msgid "Save Changes"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/class-hypwa-settings.php:964
+msgid "Need help with this feature?"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:48
+msgid "File Serving Method"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:49
+msgid "Server and hosting configurations vary. If your server doesn\\'t support WordPress rewrite rules or restricts writing files to the root directory, choose the alternative serving method."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:51
+msgid "Dynamic - Generated on the fly"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:52
+msgid "Static - Stored in root directory"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:60
+msgid "Force Update"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:61
+msgid "Update this version number (e.g. from 1.0 to 1.1) to force the PWA to update and refresh the browser cache for all visitors."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:69
+msgid "Custom Install Trigger"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:70
+msgid "Enter a comma-separated list of CSS selectors (e.g. classes or IDs) for HTML elements on your site. When clicked, these elements will trigger the PWA installation prompt."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:77
+msgid "Gutenberg Block"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:78
+msgid "Enable or disable the custom PWA Install Button Gutenberg block in the WordPress block editor."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:85
+msgid "Preload App Manifest"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:86
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:94
+msgid "An abbreviated name (max 12 characters) used where display space is limited."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:93
+msgid "Cache External Resources"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:102
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:110
+msgid "Fix Mixed Content"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:103
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:113
+msgid "Automatically upgrades HTTP resource requests to HTTPS and rewrites mixed content page assets. Note: This requires an SSL certificate (HTTPS) to be installed on your domain first."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:110
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:30
+msgid "Premium"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:114
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:34
+msgid "Upgrade to Premium to Unlock"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-advanced-settings.php:124
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:44
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:42
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1225
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:65
+msgid "OFF"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:48
+msgid "Name"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:49
+msgid "The main title of your app displayed on the user\\'s home screen and splash screen."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:57
+msgid "Short Name"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:58
+msgid "A shorter version of your app name used when space is limited. Recommended: around 12 characters or fewer."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:66
+msgid "Description"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:67
+msgid "Provide a brief description of your app. It may be displayed on supported devices and platforms to help users understand its purpose."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:74
+msgid "Icon"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:75
+msgid "The primary launcher icon for your app. Recommended: Square PNG, 512×512 pixels."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:82
+msgid "Maskable Icon"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:83
+msgid "An adaptive icon with a safe zone that allows devices to crop it without cutting off key artwork. Recommended: Square PNG, 512×512 pixels."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:90
+msgid "Monochrome Icon"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:91
+msgid "A single-color transparent icon used by OS environments for taskbars, notifications, and badges, dynamically tinting to match system themes. Recommended: Square PNG, 512×512 pixels."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:98
+msgid "Splash Screen Icon"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:99
+msgid "The icon shown in the middle of the splash screen. Recommended: PNG with transparent background, 512×512 pixels."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:107
+msgid "Start Page"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:108
+msgid "The specific landing page that opens immediately when your app is launched."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:109
+msgid "--Select Start Page--"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:117
+msgid "404 Page"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:118
+msgid "The fallback error page displayed inside the app if a broken link is encountered."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:119
+msgid "--Select 404 Page--"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:128
+msgid "The offline fallback page served when a user accesses the app without internet."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:129
+msgid "--Select Offline Page--"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:137
+msgid "Orientation"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:138
+msgid "Locks the screen display view orientation, or lets it rotate dynamically."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:140
+msgid "Follow Device Orientation"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:141
+msgid "Portrait"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:142
+msgid "Landscape"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:151
+msgid "Launch Mode"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:152
+msgid "Controls the display UI. Standalone hides browser bars to look like a native app."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:154
+msgid "Full Screen"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:155
+msgid "Standalone"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:156
+msgid "Minimal UI"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:157
+msgid "Browser"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:166
+msgid "Theme Color"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:167
+msgid "Sets the primary color used for the browser UI and installed app. Choose a color that matches your brand.."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:175
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:965
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1012
+msgid "Background Color"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-app-basic-settings.php:176
+msgid "Sets the background color of the app\\'s splash screen while it loads. Choose a color that matches your app\\'s background.."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:13
+msgid "OneSignal"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:14
+msgid "Integrates Hyper PWA with OneSignal push notifications for reliable message delivery."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:22
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:30
+msgid "Airlift"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:23
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:33
+msgid "Maintains compatibility with Airlift speed optimizer."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:56
+msgid "Webpushr"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:57
+msgid "Connects Hyper PWA with Webpushr to support instant web push notifications."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:64
+msgid "Gravitec"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-compatibility-settings.php:65
+msgid "Provides integration with Gravitec push service for automated and personalized notifications."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:42
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1225
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:65
+msgid "ON"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:117
+msgid "URL Preview"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:175
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:724
+msgid "Post Types"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:177
+msgid "Choose how to pre-cache each post type — by latest count or by specific selection."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:182
+msgid "Post Type"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:183
+msgid "Latest Count"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:184
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:250
+msgid "OR"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:185
+msgid "Select Specific"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:244
+msgid "latest"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:281
+msgid "Manual URLs"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:284
+msgid "Enter URLs to pre-cache, per line."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:309
+msgid "Form Factor – Narrow"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:310
+msgid "Screenshots for narrow/mobile viewports (e.g. 390×844). Displayed in mobile install prompts."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:315
+msgid "Form Factor – Wide"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:316
+msgid "Screenshots for wide/desktop viewports (e.g. 1280×800). Displayed in desktop install prompts."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:379
+msgid "Upload"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:400
+msgid "Remove screenshot"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:418
+msgid "Add Screenshot"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:496
+msgid "Push Notifications"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:497
+msgid "Connect your site to HyperPush and send push notifications to your subscribers."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:514
+msgid "iOS & Safari"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:515
+msgid "Configure install prompts, icons, and splash screens for iOS & Safari."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:533
+msgid "Apple Touch Icon"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:534
+msgid "Icon used on iOS/iPadOS home screens and Safari on macOS. Recommended: Square PNG, 180×180 pixels. Falls back to default app icon."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:542
+msgid "iOS Status Bar Style"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:543
+msgid "Appearance of the status bar on iOS devices in standalone mode."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:545
+msgid "Default (White/Black status bar background)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:546
+msgid "Black (Black status bar background)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:547
+msgid "Black Translucent (App content spans under status bar)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:555
+msgid "iOS Splash Screens"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:556
+msgid "Generates Apple Startup Image tags to show a branded splash screen on iOS/iPadOS."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:564
+msgid "Custom Install Prompt Settings"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:565
+msgid "Configure custom messages shown to iOS/Safari users to prompt app installation."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:574
+msgid "Prompt Title"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:575
+msgid "Customize the main title text in the iOS install banner."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:582
+msgid "Prompt Description"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:583
+msgid "Customize the body/description text in the banner."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:590
+msgid "Step 1 Text"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:591
+msgid "Text explaining the first step (tapping share button)."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:598
+msgid "Step 2 Text"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:599
+msgid "Text explaining the second step (tapping Add to Home Screen)."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:605
+msgid "Screenshots"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:606
+msgid "Add app screenshots for install prompts."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:623
+msgid "Caching Strategies"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:624
+msgid "Pages cache strategy and runtime cache controls."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:644
+msgid "Pages Cache Strategy"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:645
+msgid "Control how pages are cached for faster loading and better performance."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:647
+msgid "Stale While Revalidate (Recommended)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:648
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:664
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:678
+msgid "Network First"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:649
+msgid "Cache First"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:650
+msgid "Network Only"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:659
+msgid "Static Assets Strategy-( CSS, JS, Fonts )"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:660
+msgid "Optimize caching for CSS, JS, and fonts to improve loading speed and performance."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:662
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:676
+msgid "Cache First (Recommended)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:663
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:677
+msgid "Stale While Revalidate"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:673
+msgid "Images Cache Strategy"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:674
+msgid "Control image caching to improve load times and reduce bandwidth usage."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:685
+msgid "Pre Caching"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:686
+msgid "Select post types and URLs to pre-cache for offline access."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:704
+msgid "Exclude from Caching"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:705
+msgid "Select post types and URLs to exclude from caching."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:725
+msgid "Select post types that should not be cached"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:734
+msgid "Taxonomies"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:735
+msgid "Select taxonomies that should not be cached"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:744
+msgid "Specific Content"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:745
+msgid "Select specific posts, pages, custom post types, products etc you want to exclude from caching."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:753
+msgid "URLs & URL Patterns"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:754
+msgid "Enter one URL path or pattern per line"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:760
+msgid "UTM Tracking"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:761
+msgid "Manage preloaded resources."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:780
+msgid "Source"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:781
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:790
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:799
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:808
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:817
+msgid "The primary visible name of your PWA application."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:789
+msgid "Medium"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:798
+msgid "Campaign"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:807
+msgid "Term"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:816
+msgid "Content"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:823
+msgid "Install Button Shortcode"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:824
+msgid "Place PWA install button anywhere."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:841
+msgid "Legacy Icons"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:842
+msgid "Upload legacy app icons for older devices and platforms."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:860
+msgid "App Icon (72x72)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:861
+msgid "Upload a 72×72 PNG icon."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:868
+msgid "App Icon (96x96)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:869
+msgid "Upload a 96×96 PNG icon."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:876
+msgid "App Icon (128x128)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:877
+msgid "Upload a 128×128 PNG icon."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:884
+msgid "App Icon (144x144)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:885
+msgid "Upload a 144×144 PNG icon."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:892
+msgid "App Icon (152x152)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:893
+msgid "Upload a 152×152 PNG icon."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:900
+msgid "App Icon (192x192)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:901
+msgid "Upload a 192×192 PNG icon."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:908
+msgid "App Icon (384x384)"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:909
+msgid "Upload a 384×384 PNG icon."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:915
+msgid "Connectivity Notices"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:916
+msgid "Configure messages shown to users when they go online or offline."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:935
+msgid "Offline Notice"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:936
+msgid "Shown when the user loses internet connection."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:947
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:994
+msgid "Message Title"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:948
+msgid "Show a custom message when user is offline"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:957
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1004
+msgid "Message Description"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:958
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1005
+msgid "Description text shown below the title."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:966
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1013
+msgid "Set background color."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:973
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1020
+msgid "Text Color"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:974
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1021
+msgid "Set text color."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:982
+msgid "Online Notice"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:983
+msgid "Shown when internet connection is restored."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:995
+msgid "Show a custom message when user is back online"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1044
+msgid "Button Text"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1045
+msgid "Text displayed inside the PWA install button."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1051
+msgid "Button Background Color"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1052
+msgid "Custom background color of the install button."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1058
+msgid "Button Text Color"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1059
+msgid "Custom text color of the install button."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1065
+msgid "Border Radius"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1066
+msgid "Specify the border radius of the button (e.g. 8 or 12px)."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1072
+msgid "Padding"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1073
+msgid "Specify the padding inside the button (e.g. 12px 24px)."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1078
+msgid "Shortcode Usage"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1079
+msgid "Use this shortcode anywhere on your website to place the button."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1111
+msgid "Live Preview"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1127
+msgid "Dedicated HyperPush-X Plugin is Active"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1128
+msgid "Push notifications are currently managed via the dedicated HyperPush-X plugin. To avoid configuration conflicts, native push settings inside Hyper PWA have been disabled."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1131
+msgid "Go to Dashboard"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1149
+msgid "Connection Status"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1150
+msgid "Connect your site with your hyperpushx.com account."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1156
+msgid "Connected to hyperpushx.com"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1166
+msgid "Total"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1176
+msgid "Expired"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1184
+msgid "Refresh Stats"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1187
+msgid "Disconnect"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1193
+msgid "Disconnected"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1196
+msgid "Enter hyperpushx.com API Key"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1198
+msgid "Connect"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1203
+msgid "Get started for free"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1214
+msgid "Send on Post Published"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1215
+msgid "Trigger push alerts automatically on publish."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1229
+msgid "Automatically send a push notification when a new post is published."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1241
+msgid "Send Manual Notification"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1242
+msgid "Draft and broadcast a custom push message directly to your subscribed devices."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1248
+msgid "Notification Title"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1249
+msgid "Enter the broadcast notification title."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1252
+msgid "e.g., Check out our latest post!"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1258
+msgid "Message"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1259
+msgid "Enter the notification message body text."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1262
+msgid "Type your notification text here..."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1268
+msgid "Notification Image"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1269
+msgid "Optional. Upload an image to display in the push notification."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1275
+msgid "Media Upload"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1283
+msgid "Redirect URL"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1284
+msgid "The page users will be redirected to upon clicking."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1296
+msgid "Send Notification"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1310
+msgid "Looking for Full Push Notification Control?"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1313
+msgid "While Hyper PWA includes basic push capabilities, upgrading to a premium account on hyperpushx.com and installing the dedicated HyperPush-X plugin unlocks advanced features like RSS-to-push automation, detailed delivery schedules, subscriber segmentation, interactive opt-in styling widgets, and full analytics logs."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1317
+msgid "Upgrade at hyperpushx.com"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-core-feature-settings.php:1321
+msgid "Get HyperPush-X WP Plugin"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:104
+msgid "Activate your license to unlock"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:108
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:109
+msgid "Upgrade to Pro to Unlock"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:152
+msgid "Custom Install App"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:153
+msgid "Replace the browser's default install prompt with a fully branded install experience."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:160
+msgid "App Shortcuts"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:161
+msgid "Add quick-action shortcuts to your PWA's home screen icon for instant page access."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:169
+msgid "Initial Loader"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:170
+msgid "Display a branded splash screen while your PWA loads for a native app-like experience."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:178
+msgid "Bottom Navigation"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:179
+msgid "Add a fixed bottom nav bar for thumb-friendly mobile navigation across key pages."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:187
+msgid "Multilingual"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:188
+msgid "Serve your PWA in multiple languages based on the user's locale or preference."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:196
+msgid "App Install QR"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:197
+msgid "Scan the QR code to open a dedicated page to install the app."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:205
+msgid "Offline Forms"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:206
+msgid "Capture and queue form submissions when offline, syncing automatically on reconnect."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:214
+msgid "Smart Analytics"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:215
+msgid "Track PWA installs, launches, and user engagement with actionable insights."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:223
+msgid "Android APK Builder"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-premium-features-settings.php:224
+msgid "Generate a ready-to-publish Android APK from your PWA without writing any code."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:14
+msgid "Export Configuration"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:16
+msgid "Download your current settings, integrations, and design configurations as a JSON file."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:27
+msgid "Download Export File"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:34
+msgid "Select Import File"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:37
+msgid "Upload a previously exported .json file to overwrite current settings."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:38
+msgid "Note:"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:39
+msgid "This cannot be undone."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:62
+msgid "Browse"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:63
+msgid "or drop JSON"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:70
+msgid "Change"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:77
+msgid "Importing..."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:82
+msgid "Process Import"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:99
+msgid "Remove data on uninstall"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:100
+msgid "Automatically deletes all plugin data when the plugin is uninstalled, ensuring a clean removal."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:108
+msgid "Reset all settings"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:109
+msgid "Reset all settings of the plugin to It's default."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:115
+msgid "Resetting..."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/admin/settings/class-hypwa-tools-settings.php:120
+msgid "Click here to reset"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/customer/bootstrap.php:99
+msgid "Installation is not supported on this browser/device, or the app is already installed."
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/customer/bootstrap.php:280
+msgid "New post published: %s"
+msgstr ""
+
+#: D:/WAMP/www/site-owner/wp-content/plugins/hyper-pwa/includes/customer/bootstrap.php:281
+msgid "Click here to read our latest post."
+msgstr ""
+

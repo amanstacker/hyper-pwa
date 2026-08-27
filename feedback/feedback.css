@@ -1,0 +1,123 @@
+#hypwa-feedback-overlay {    
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 10000; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(120,120,120); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.5); /* Black w/opacity */
+}
+#hypwa-feedback-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 500px;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */     
+    background-color: #fff;    
+}
+#hypwa-feedback-content textarea {
+     width:100%;
+}
+.hypwa-fd-stop-deactivation { 
+    display: block; 
+    text-align: right; 
+}
+
+#hypwa-feedback-content h3{
+    margin:5px;
+}
+
+@media screen and (max-width:400px){
+    #hypwa-feedback-content {
+        padding:0px;
+        padding-bottom:50px;
+    }
+}
+.hypwa-dp-reasons{
+    column-count: 2;
+    column-gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.hypwa-dp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Optional: puts h3 on left, button on right */
+    position: relative; /* Needed for absolutely positioned button */
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    height: 48px;
+    padding-left: 20px;
+}
+
+.hypwa-dp-header button{
+    background-color: transparent;
+    border: 0;    
+    border-left: 1px solid #ddd;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 48px;
+    padding: 0;    
+    right: 0;
+    text-align: center;
+    top: 0;
+    transition: color .1s ease-in-out, background .1s ease-in-out;
+    width: 50px;
+}
+.hypwa-dp-body{    
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.hypwa-dp-footer{
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+/* ------------ */
+.hypwa-dp-header .hypwa-fd-stop-deactivation:hover {
+    background-color: #f0f0f0; /* or any color you want on hover */
+    color: #000;
+}
+.hypwa-dp-reasons li {
+    position: relative;
+}
+
+.hypwa-dp-reasons input[type="radio"] {
+    display: none;
+}
+
+.hypwa-dp-reasons label {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 8px;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+/*  Hover Effect */
+.hypwa-dp-reasons label:hover {
+    border-color: #999;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
+}
+
+/*  Selected (Checked) State */
+.hypwa-dp-reasons input[type="radio"]:checked + label {
+    border-color: #007cba;
+    background-color: #f0f8ff;
+    box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.2);
+}
+.hypwa-d-none{
+    display: none !important;
+}
+.hypwa-dt-de{
+    float: right;
+}
+.hypwa-feedback-note{
+    font-size: 11px !important;
+}
