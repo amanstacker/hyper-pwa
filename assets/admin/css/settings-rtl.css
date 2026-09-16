@@ -73,3 +73,9 @@
         left: 0;
     }
 }
+
+/* Support Tab Direct Email Info Card in RTL */
+.rtl .hypwa-support-direct-email-card {
+    border-left: 1px solid #dbeafe;
+    border-right: 4px solid #2563eb;
+}

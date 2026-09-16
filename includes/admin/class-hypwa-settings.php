@@ -330,8 +330,18 @@ class HYPWA_Settings {
                                         <div class="hypwa-form-row" style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 24px;">
                                             
                                             <div style="flex: 1; min-width: 380px;">
+                                                
+                                                <div class="hypwa-support-direct-email-card">
+                                                    <span class="dashicons dashicons-email-alt hypwa-support-card-icon"></span>
+                                                    <div>
+                                                        <h4 class="hypwa-support-card-title"><?php esc_html_e( 'Direct Support Email', 'hyper-pwa' ); ?></h4>
+                                                        <p class="hypwa-support-card-desc">
+                                                            <?php esc_html_e( 'Need immediate help or prefer email? Reach us anytime at', 'hyper-pwa' ); ?> <a href="mailto:support@hyperpwa.com" class="hypwa-support-card-email-link"><?php esc_html_e( 'support@hyperpwa.com', 'hyper-pwa' ); ?></a>
+                                                        </p>
+                                                    </div>
+                                                </div>
                                                                                                             
-                                        <div class="hypwa-form-row" style="flex-direction: column; align-items: stretch; gap: 8px;">
+                                                <div class="hypwa-form-row" style="flex-direction: column; align-items: stretch; gap: 8px;">
                                             <div class="hypwa-label-col" style="width: 100%;">
                                                 <label for="detailed_description"><?php esc_html_e( 'Ticket Subject', 'hyper-pwa' ); ?></label>
                                             </div>                        

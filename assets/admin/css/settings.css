@@ -1643,3 +1643,50 @@ input:checked + .hypwa-option-slider { background-color: #2563eb !important; }
     background: #f1c40f;
     box-shadow: 0 4px 12px rgba(234, 179, 8, 0.35);
 }
+
+/* Support Tab Direct Email Info Card */
+.hypwa-support-direct-email-card {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.hypwa-support-direct-email-card .hypwa-support-card-icon {
+    color: #2563eb;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.hypwa-support-direct-email-card .hypwa-support-card-title {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+.hypwa-support-direct-email-card .hypwa-support-card-desc {
+    margin: 0;
+    font-size: 13.5px;
+    color: #1e40af;
+    line-height: 1.5;
+}
+
+.hypwa-support-direct-email-card .hypwa-support-card-email-link {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.15s ease-in-out;
+}
+
+.hypwa-support-direct-email-card .hypwa-support-card-email-link:hover {
+    color: #1d4ed8;
+}

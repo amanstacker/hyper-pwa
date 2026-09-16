@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/paypalme/amanstacker
 Requires PHP: 7.4
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 5.7
+Stable tag: 5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -240,6 +240,9 @@ We actively monitor feedback and regularly release updates with bug fixes, impro
 
 == Upgrade Notice ==
 
+= 5.8 =
+Direct Support Email card added to Support tab, and fixed support ticket submission from plugin settings page.
+
 = 5.7 =
 Adds Elementor Widget support for PWA Install Button and introduces built-in WooCommerce caching exclusions.
 
@@ -250,6 +253,11 @@ Adds new Gutenberg Block, Shortcode, RTL support, and layout fixes. Updates comp
 Major update! Hyper PWA has been rebuilt from scratch with a redesigned interface, better performance, and powerful new PWA capabilities.
 
 == Changelog ==
+
+= 5.8 =
+
+* Added: Direct Support Email card on the Support tab for quick email contact.
+* Fixed: Support ticket submission issues from the plugin admin settings page (nonce and permissions verification).
 
 = 5.7 =
 
