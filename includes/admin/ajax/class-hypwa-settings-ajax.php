@@ -37,7 +37,11 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
 
         public function submit_support_ticket() {
 
-            check_ajax_referer( 'hypwa_submit_ticket', 'security' );
+            check_ajax_referer( 'hypwa_submit_ticket', 'nonce' );
+
+            if ( ! current_user_can( 'manage_options' ) ) {
+                wp_send_json_error([ 'message' => esc_html__( 'You do not have permission.', 'hyper-pwa' ) ]);
+            }
 
             $email = isset( $_POST['ticket_email'] )
                 ? sanitize_email( wp_unslash( $_POST['ticket_email'] ) )
