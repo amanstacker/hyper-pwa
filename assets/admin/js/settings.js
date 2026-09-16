@@ -523,7 +523,7 @@
     		dataType: 'json',
     		data: {
     			action: 'hypwa_submit_support_ticket',
-    			nonce: hypwa_settings_ajax.nonce,
+    			nonce: hypwa_settings_ajax.nonces.save,
     			ticket_subject: ticket_subject,
     			ticket_email: ticket_email,
     			detailed_description: description
