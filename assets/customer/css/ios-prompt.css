@@ -21,7 +21,7 @@
 
 .hypwa-ios-prompt-container {
   position: fixed;
-  bottom: calc(0px + var(--hypwa-bn-height-offset, 0px));
+  bottom: calc(0px + var(--hypwa-bn-height-offset, 0px) + var(--hypwa-cia-height-offset, 0px));
   left: 0;
   right: 0;
   z-index: 2147483645;

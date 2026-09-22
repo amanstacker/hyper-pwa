@@ -52,7 +52,7 @@
                     position: fixed;
                     left: 20px;
                     right: auto;
-                    bottom: calc(20px + var(--hypwa-bn-height-offset, 0px) + env(safe-area-inset-bottom, 0px));
+                    bottom: calc(20px + var(--hypwa-bn-height-offset, 0px) + var(--hypwa-cia-height-offset, 0px) + env(safe-area-inset-bottom, 0px));
                     z-index: 2147483645;
                     max-width: 360px;
                     width: calc(100% - 40px);
@@ -110,7 +110,7 @@
                     #hypwa-push-prompt-container {
                         left: 12px;
                         right: 12px;
-                        bottom: calc(12px + var(--hypwa-bn-height-offset, 0px) + env(safe-area-inset-bottom, 0px));
+                        bottom: calc(12px + var(--hypwa-bn-height-offset, 0px) + var(--hypwa-cia-height-offset, 0px) + env(safe-area-inset-bottom, 0px));
                         width: auto;
                         max-width: none;
                         padding: 14px;
