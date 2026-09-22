@@ -44,11 +44,16 @@
             // Create styles
             const style = document.createElement('style');
             style.innerHTML = `
+                #hypwa-push-prompt-container,
+                #hypwa-push-prompt-container * {
+                    box-sizing: border-box;
+                }
                 #hypwa-push-prompt-container {
                     position: fixed;
                     left: 20px;
-                    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-                    z-index: 999998;
+                    right: auto;
+                    bottom: calc(20px + var(--hypwa-bn-height-offset, 0px) + env(safe-area-inset-bottom, 0px));
+                    z-index: 2147483645;
                     max-width: 360px;
                     width: calc(100% - 40px);
                     padding: 16px;
@@ -104,8 +109,9 @@
                 @media (max-width: 480px) {
                     #hypwa-push-prompt-container {
                         left: 12px;
-                        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-                        width: calc(100% - 24px);
+                        right: 12px;
+                        bottom: calc(12px + var(--hypwa-bn-height-offset, 0px) + env(safe-area-inset-bottom, 0px));
+                        width: auto;
                         max-width: none;
                         padding: 14px;
                         gap: 10px;
