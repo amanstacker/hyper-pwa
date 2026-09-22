@@ -108,6 +108,14 @@ class HYPWA_Advanced_Settings {
             'desc'          => esc_html__('An abbreviated name (max 12 characters) used where display space is limited.', 'hyper-pwa'),
         ]);
 
+        HYPWA_Settings::render('checkbox', [
+            'id'            => 'hypwa_browser_console_logs',
+            'name'          => 'hypwa_options[browser_console_logs]',
+            'value'         => HYPWA_Options::get('browser_console_logs', '1'),            
+            'label'         => esc_html__('Browser Console Logging', 'hyper-pwa'),
+            'desc'          => esc_html__('Enable or disable console log messages printed to the browser developer console (e.g. Service Worker registration, cache exclusions, and PWA install prompt status messages).', 'hyper-pwa'),
+        ]);
+
         if ( defined( 'HYPWAP_VERSION' ) ) {
             HYPWA_Settings::render('checkbox', [
                 'id'            => 'hypwa_pf_link_hover_prefetch_status',

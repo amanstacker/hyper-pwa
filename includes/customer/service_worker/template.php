@@ -46,6 +46,7 @@ function hypwa_service_worker_template() {
 		'max_entries'       => HYPWA_Options::get( 'cache_max_entries', 200 ),
 		'max_size_mb'       => HYPWA_Options::get( 'cache_max_size', 50 ),
 		'cache_external'       => HYPWA_Options::get( 'cache_external' ),
+		'browser_console_logs' => HYPWA_Options::get( 'browser_console_logs', '1' ),
 
 		'runtime_cache' => [
 			'html'  => true,

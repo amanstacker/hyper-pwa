@@ -30,7 +30,9 @@ self.addEventListener( 'fetch', ( event ) => {
 
 	// Skip excluded URLs.
 	if ( config.exclude_from_caching_status && ! hypwaCanCacheRequest( event.request.url )) {
-		console.log( 'Hyper PWA: Current request is excluded from cache.' );
+		if ( config.browser_console_logs !== '0' ) {
+			console.log( 'Hyper PWA: Current request is excluded from cache.' );
+		}
 		return;
 	}
 

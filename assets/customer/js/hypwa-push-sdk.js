@@ -8,8 +8,15 @@
     const siteId = hypwa_push_config.site_id;
     const backendUrl = hypwa_push_config.backend_url || "https://hyperpushx.com";
 
+    function hypwaLog(...args) {
+        if (typeof hypwa_sw !== 'undefined' && hypwa_sw.browser_console_logs === '0') return;
+        console.log(...args);
+    }
+
     if (!siteId || siteId.trim() === '') {
-        console.warn('Hyper PWA Push: Missing Website ID.');
+        if (typeof hypwa_sw === 'undefined' || hypwa_sw.browser_console_logs !== '0') {
+            console.warn('Hyper PWA Push: Missing Website ID.');
+        }
         return;
     }
 
@@ -238,7 +245,7 @@
                 this.subscriberId = result.subscriber.id;
                 localStorage.setItem(STORAGE_KEY_SUB_ID, this.subscriberId);
 
-                console.log('Hyper PWA Push: Successfully subscribed to push notifications.');
+                hypwaLog('Hyper PWA Push: Successfully subscribed to push notifications.');
             } catch (err) {
                 console.error('Hyper PWA Push: Subscription failed:', err);
             }
