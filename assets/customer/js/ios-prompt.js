@@ -101,15 +101,17 @@
         const closeBtn = document.getElementById('hypwa-ios-close');
         const card = document.getElementById('hypwa-ios-card');
 
-        closeBtn.addEventListener('click', function() {
-            card.classList.add('hypwa-dismissed');
-            localStorage.setItem('hypwa_ios_prompt_dismissed', new Date().getTime().toString());
-            
-            // Remove from DOM after transition completes
-            setTimeout(() => {
-                container.remove();
-            }, 350);
-        });
+        if ( closeBtn && card ) {
+            closeBtn.addEventListener('click', function() {
+                card.classList.add('hypwa-dismissed');
+                localStorage.setItem('hypwa_ios_prompt_dismissed', new Date().getTime().toString());
+                
+                // Remove from DOM after transition completes
+                setTimeout(() => {
+                    container.remove();
+                }, 350);
+            });
+        }
     }
 
     // Expose global helper to programmatically trigger iOS prompt

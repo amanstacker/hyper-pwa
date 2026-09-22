@@ -157,24 +157,31 @@
                 }, 300);
             };
 
-            container.querySelector('.hypwa-push-btn-no').addEventListener('click', () => {
-                localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
-                dismiss();
-            });
+            const btnNo = container.querySelector('.hypwa-push-btn-no');
+            const btnAllow = container.querySelector('.hypwa-push-btn-allow');
 
-            container.querySelector('.hypwa-push-btn-allow').addEventListener('click', async () => {
-                dismiss();
-                try {
-                    const permission = await Notification.requestPermission();
-                    if (permission === 'granted') {
-                        await this.setupSubscription();
-                    } else {
-                        localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
+            if (btnNo) {
+                btnNo.addEventListener('click', () => {
+                    localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
+                    dismiss();
+                });
+            }
+
+            if (btnAllow) {
+                btnAllow.addEventListener('click', async () => {
+                    dismiss();
+                    try {
+                        const permission = await Notification.requestPermission();
+                        if (permission === 'granted') {
+                            await this.setupSubscription();
+                        } else {
+                            localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
+                        }
+                    } catch (err) {
+                        console.error('Hyper PWA Push: Permission request failed:', err);
                     }
-                } catch (err) {
-                    console.error('Hyper PWA Push: Permission request failed:', err);
-                }
-            });
+                });
+            }
         }
 
         async setupSubscription() {

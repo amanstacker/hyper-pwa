@@ -1,4 +1,7 @@
 function hypwaConnectivityNotice() {
+    if ( typeof hypwa_sw === 'undefined' ) {
+        return;
+    }
     const notice = document.createElement( 'div' );
     notice.id = 'hypwa-connectivity-notice';
     notice.setAttribute( 'role', 'status' );

@@ -3,6 +3,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
 	window.hypwaDeferredPrompt = e;
 });
 
+if ( typeof hypwa_sw === 'undefined' || ! hypwa_sw.sw_url ) {
+	return;
+}
+
 if ( 'serviceWorker' in navigator ) {
 
 	window.addEventListener( 'load', () => {
