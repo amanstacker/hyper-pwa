@@ -92,7 +92,8 @@ if ( ! class_exists( 'HYPWA_Options' ) ) {
                 'file_serving_method'          => 'dynamic',                      
                 'force_update'                 => '1.0',                      
                 'preload_app_manifiest'        => '1',                      
-                'cache_external'     => '1', 
+                'cache_external'               => '1', 
+                'browser_console_logs'         => '1', 
                 'custom_install_trigger'       => '',                      
                 'cf_conn_notice_title'         => "You're Offline",                      
                 'cf_conn_notice_description'   => "It looks like you are not connected to the internet. Please check your connection and try again.",               
@@ -238,10 +239,10 @@ if ( ! class_exists( 'HYPWA_Options' ) ) {
                 }
             }
 
-            $text_toggle_fields = array( 'cf_caching_status', 'cf_pre_caching_status', 'cf_utm_tracking_status', 'cf_screenshots_status', 'cf_legacy_icon_status', 'cf_exclude_from_caching_status', 'preload_app_manifiest', 'cache_external', 'cf_connectivity_notices_status', 'comp_one_signal', 'comp_webpushr', 'comp_gravitec', 'comp_airlift', 'comp_wp_rocket', 'comp_litespeed', 'comp_autoptimize', 'comp_wpfc', 'comp_w3tc', 'comp_wpsc', 'fix_mixed_content', 'remove_data_on_uninstall', 'ios_splash_screens_enabled', 'ios_prompt_status', 'cf_push_status', 'cf_push_send_on_publish', 'cf_install_button_status', 'cf_gutenberg_block_status', 'cf_elementor_widget_status' );
+            $text_toggle_fields = array( 'cf_caching_status', 'cf_pre_caching_status', 'cf_utm_tracking_status', 'cf_screenshots_status', 'cf_legacy_icon_status', 'cf_exclude_from_caching_status', 'preload_app_manifiest', 'cache_external', 'browser_console_logs', 'cf_connectivity_notices_status', 'comp_one_signal', 'comp_webpushr', 'comp_gravitec', 'comp_airlift', 'comp_wp_rocket', 'comp_litespeed', 'comp_autoptimize', 'comp_wpfc', 'comp_w3tc', 'comp_wpsc', 'fix_mixed_content', 'remove_data_on_uninstall', 'ios_splash_screens_enabled', 'ios_prompt_status', 'cf_push_status', 'cf_push_send_on_publish', 'cf_install_button_status', 'cf_gutenberg_block_status', 'cf_elementor_widget_status' );
             foreach ( $text_toggle_fields as $field ) {
                 if ( isset( $input[ $field ] ) ) {
-                    $output[ $field ] = $input[ $field ] == '1' ? '1' : '0';
+                    $output[ $field ] = ( '1' == $input[ $field ] ) ? '1' : '0';
                 }
             }
 
@@ -311,24 +312,18 @@ if ( ! class_exists( 'HYPWA_Options' ) ) {
 
             // Whitelisted select fields
             $allowed_orientation = array( 'follow-device-orientation', 'portrait', 'landscape' );
-            if ( isset( $input['orientation'] ) && in_array( $input['orientation'], $allowed_orientation, true ) ) {
-                $output['orientation'] = $input['orientation'];
-            } else {
-                $output['orientation'] = 'portrait';
+            if ( isset( $input['orientation'] ) ) {
+                $output['orientation'] = in_array( $input['orientation'], $allowed_orientation, true ) ? $input['orientation'] : 'portrait';
             }
 
             $allowed_launch_mode = array( 'full-screen', 'standalone', 'minimal-ui', 'browser' );
-            if ( isset( $input['launch_mode'] ) && in_array( $input['launch_mode'], $allowed_launch_mode, true ) ) {
-                $output['launch_mode'] = $input['launch_mode'];
-            } else {
-                $output['launch_mode'] = 'standalone';
+            if ( isset( $input['launch_mode'] ) ) {
+                $output['launch_mode'] = in_array( $input['launch_mode'], $allowed_launch_mode, true ) ? $input['launch_mode'] : 'standalone';
             }
 
             $allowed_status_bar = array( 'default', 'black', 'black-translucent' );
-            if ( isset( $input['apple_status_bar_style'] ) && in_array( $input['apple_status_bar_style'], $allowed_status_bar, true ) ) {
-                $output['apple_status_bar_style'] = $input['apple_status_bar_style'];
-            } else {
-                $output['apple_status_bar_style'] = 'default';
+            if ( isset( $input['apple_status_bar_style'] ) ) {
+                $output['apple_status_bar_style'] = in_array( $input['apple_status_bar_style'], $allowed_status_bar, true ) ? $input['apple_status_bar_style'] : 'default';
             }
 
             $allowed_multiples = array( 'cf_exclude_caching_post_types', 'cf_exclude_caching_taxonomies' );

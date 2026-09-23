@@ -100,6 +100,7 @@ function hypwa_enqueue_service_worker() {
 		'conn_online_notice_icon'            => HYPWA_Options::get( 'cf_conn_online_notice_icon', 'dashicons-wifi' ),
 		'custom_install_trigger'      => HYPWA_Options::get( 'custom_install_trigger', '' ),
 		'install_unsupported_msg'     => esc_html__( 'Installation is not supported on this browser/device, or the app is already installed.', 'hyper-pwa' ),
+		'browser_console_logs'        => HYPWA_Options::get( 'browser_console_logs', '1' ),
 	];
 
 	$script_data 	=	apply_filters( 'hypwa_service_worker_localize_data', $script_data );

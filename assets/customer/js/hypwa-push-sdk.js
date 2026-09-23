@@ -8,8 +8,15 @@
     const siteId = hypwa_push_config.site_id;
     const backendUrl = hypwa_push_config.backend_url || "https://hyperpushx.com";
 
+    function hypwaLog(...args) {
+        if (typeof hypwa_sw !== 'undefined' && hypwa_sw.browser_console_logs === '0') return;
+        console.log(...args);
+    }
+
     if (!siteId || siteId.trim() === '') {
-        console.warn('Hyper PWA Push: Missing Website ID.');
+        if (typeof hypwa_sw === 'undefined' || hypwa_sw.browser_console_logs !== '0') {
+            console.warn('Hyper PWA Push: Missing Website ID.');
+        }
         return;
     }
 
@@ -44,11 +51,16 @@
             // Create styles
             const style = document.createElement('style');
             style.innerHTML = `
+                #hypwa-push-prompt-container,
+                #hypwa-push-prompt-container * {
+                    box-sizing: border-box;
+                }
                 #hypwa-push-prompt-container {
                     position: fixed;
                     left: 20px;
-                    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-                    z-index: 999998;
+                    right: auto;
+                    bottom: calc(20px + var(--hypwa-bn-height-offset, 0px) + var(--hypwa-cia-height-offset, 0px) + env(safe-area-inset-bottom, 0px));
+                    z-index: 2147483645;
                     max-width: 360px;
                     width: calc(100% - 40px);
                     padding: 16px;
@@ -104,8 +116,9 @@
                 @media (max-width: 480px) {
                     #hypwa-push-prompt-container {
                         left: 12px;
-                        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-                        width: calc(100% - 24px);
+                        right: 12px;
+                        bottom: calc(12px + var(--hypwa-bn-height-offset, 0px) + var(--hypwa-cia-height-offset, 0px) + env(safe-area-inset-bottom, 0px));
+                        width: auto;
                         max-width: none;
                         padding: 14px;
                         gap: 10px;
@@ -151,24 +164,31 @@
                 }, 300);
             };
 
-            container.querySelector('.hypwa-push-btn-no').addEventListener('click', () => {
-                localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
-                dismiss();
-            });
+            const btnNo = container.querySelector('.hypwa-push-btn-no');
+            const btnAllow = container.querySelector('.hypwa-push-btn-allow');
 
-            container.querySelector('.hypwa-push-btn-allow').addEventListener('click', async () => {
-                dismiss();
-                try {
-                    const permission = await Notification.requestPermission();
-                    if (permission === 'granted') {
-                        await this.setupSubscription();
-                    } else {
-                        localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
+            if (btnNo) {
+                btnNo.addEventListener('click', () => {
+                    localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
+                    dismiss();
+                });
+            }
+
+            if (btnAllow) {
+                btnAllow.addEventListener('click', async () => {
+                    dismiss();
+                    try {
+                        const permission = await Notification.requestPermission();
+                        if (permission === 'granted') {
+                            await this.setupSubscription();
+                        } else {
+                            localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
+                        }
+                    } catch (err) {
+                        console.error('Hyper PWA Push: Permission request failed:', err);
                     }
-                } catch (err) {
-                    console.error('Hyper PWA Push: Permission request failed:', err);
-                }
-            });
+                });
+            }
         }
 
         async setupSubscription() {
@@ -225,7 +245,7 @@
                 this.subscriberId = result.subscriber.id;
                 localStorage.setItem(STORAGE_KEY_SUB_ID, this.subscriberId);
 
-                console.log('Hyper PWA Push: Successfully subscribed to push notifications.');
+                hypwaLog('Hyper PWA Push: Successfully subscribed to push notifications.');
             } catch (err) {
                 console.error('Hyper PWA Push: Subscription failed:', err);
             }

@@ -21,10 +21,10 @@
 
 .hypwa-ios-prompt-container {
   position: fixed;
-  bottom: 0;
+  bottom: calc(0px + var(--hypwa-bn-height-offset, 0px) + var(--hypwa-cia-height-offset, 0px));
   left: 0;
   right: 0;
-  z-index: 999999;
+  z-index: 2147483645;
   display: flex;
   justify-content: center;
   padding: 16px;
