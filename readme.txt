@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/paypalme/amanstacker
 Requires PHP: 7.4
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 5.8
+Stable tag: 5.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -253,6 +253,13 @@ Adds new Gutenberg Block, Shortcode, RTL support, and layout fixes. Updates comp
 Major update! Hyper PWA has been rebuilt from scratch with a redesigned interface, better performance, and powerful new PWA capabilities.
 
 == Changelog ==
+
+= 5.9 =
+
+* Added: "Browser Console Logging" option in App Basics to toggle frontend console debug logs.
+* Fixed: Settings reset issue across tabs when saving plugin configuration in admin dashboard.
+* Fixed: Option sanitization logic to strictly sanitize only submitted form input fields.
+* Improved: Code optimization and overall plugin stability.
 
 = 5.8 =
 
