@@ -17,7 +17,8 @@
         $('.hypwa-select2').select2({
             width: '100%',
             placeholder: 'Select options...',
-            allowClear: true
+            allowClear: true,
+            dropdownCssClass: 'hypwa-select2-dropdown'
         });
 
 
@@ -38,6 +39,7 @@
 
             $select.select2({
                 width: '100%',
+                dropdownCssClass: 'hypwa-select2-dropdown',
                 minimumInputLength: 0,
                 ajax: {
                     url: hypwa_settings_ajax.ajax_url,
