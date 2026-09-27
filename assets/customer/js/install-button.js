@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var isAlreadyInstalled = localStorage.getItem('hypwa_installed') === 'true';
 
     if (isStandalone) {
+        try { localStorage.setItem('hypwa_installed', 'true'); } catch (e) {}
         hypwaLog('Hyper PWA Button: Hidden because user is browsing inside the standalone PWA app.');
         return;
     }
@@ -31,6 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
         hypwaLog('Hyper PWA Button: Event fired. Revealing install buttons.');
         buttons.forEach(function(btn) {
             btn.style.display = 'inline-block';
+        });
+    }
+
+    // Function to hide all button instances on page
+    function hideAllButtons() {
+        buttons.forEach(function(btn) {
+            btn.style.display = 'none';
         });
     }
 
@@ -56,6 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
     buttons.forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
+            if (isIOS) {
+                try { localStorage.setItem('hypwa_installed', 'true'); } catch (err) {}
+                hideAllButtons();
+            }
             if (typeof hypwaTriggerPWAInstall === 'function') {
                 hypwaTriggerPWAInstall();
             } else {
@@ -66,9 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 4. Listen for appinstalled event to hide button instantly
     window.addEventListener('appinstalled', function() {
-        buttons.forEach(function(btn) {
-            btn.style.display = 'none';
-        });
-        localStorage.setItem('hypwa_installed', 'true');
+        hideAllButtons();
+        try { localStorage.setItem('hypwa_installed', 'true'); } catch (e) {}
+    });
+
+    // 5. iOS cancellation / dismissal listener: restore buttons if user cancelled prompt
+    window.addEventListener('hypwa_ios_prompt_dismissed', function() {
+        try { localStorage.removeItem('hypwa_installed'); } catch (e) {}
+        showAllButtons();
     });
 });

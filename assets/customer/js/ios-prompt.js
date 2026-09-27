@@ -24,6 +24,15 @@
             return;
         }
 
+        // Check if already marked as installed (bypass if manually triggered with force)
+        if ( !force ) {
+            try {
+                if ( localStorage.getItem('hypwa_installed') === 'true' ) {
+                    return;
+                }
+            } catch (e) {}
+        }
+
         // Check if dismissed in the last 7 days (bypass if forced)
         if (!force) {
             const dismissedTime = localStorage.getItem('hypwa_ios_prompt_dismissed');
@@ -104,7 +113,11 @@
         if ( closeBtn && card ) {
             closeBtn.addEventListener('click', function() {
                 card.classList.add('hypwa-dismissed');
-                localStorage.setItem('hypwa_ios_prompt_dismissed', new Date().getTime().toString());
+                try {
+                    localStorage.setItem('hypwa_ios_prompt_dismissed', new Date().getTime().toString());
+                    localStorage.removeItem('hypwa_installed');
+                } catch (e) {}
+                window.dispatchEvent(new CustomEvent('hypwa_ios_prompt_dismissed'));
                 
                 // Remove from DOM after transition completes
                 setTimeout(() => {
@@ -112,6 +125,15 @@
                 }, 350);
             });
         }
+
+        // Persist installation flag when user switches away from Safari to complete Add to Home Screen
+        function handleVisibilityChange() {
+            if ( document.visibilityState === 'hidden' && document.querySelector('.hypwa-ios-prompt-container') ) {
+                try { localStorage.setItem('hypwa_installed', 'true'); } catch (e) {}
+            }
+        }
+        document.addEventListener('visibilitychange', handleVisibilityChange, { once: true });
+        window.addEventListener('pagehide', handleVisibilityChange, { once: true });
     }
 
     // Expose global helper to programmatically trigger iOS prompt
