@@ -56,25 +56,6 @@ class HYPWA_Settings {
         );
         wp_style_add_data( 'hypwa-admin-styles', 'rtl', true );
 
-        wp_add_inline_style( 'hypwa-admin-styles', '
-            .hypwa-health-row { display: flex; align-items: center; width: 100%; }
-            .hypwa-health-row-link { display: flex; justify-content: space-between; align-items: center; flex: 1; min-width: 0; padding: 10px 0; color: #475569; text-decoration: none; font-size: 13px; font-weight: 500; }
-            .hypwa-health-row-link:hover { color: #2563eb; }
-            .hypwa-health-status-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 4px; margin-right: 8px; flex-shrink: 0; vertical-align: middle; }
-            .hypwa-health-status-icon.hypwa-has-issue { cursor: help; }
-            .hypwa-health-status-icon .dashicons { margin-right: 0 !important; font-size: 15px; width: 15px; height: 15px; }
-            .hypwa-health-tooltip { display: none !important; position: absolute; bottom: calc(100% + 10px); left: -8px; width: 250px; background-color: #0f172a; color: #f8fafc; border-radius: 8px; padding: 10px 12px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.35); border: 1px solid #334155; z-index: 9999; pointer-events: none; text-align: left; white-space: normal; box-sizing: border-box; }
-            .hypwa-health-tooltip::after { content: ""; position: absolute; top: 100%; left: 12px; border-width: 6px; border-style: solid; border-color: #0f172a transparent transparent transparent; }
-            .hypwa-health-status-icon:hover .hypwa-health-tooltip { display: block !important; }
-            .hypwa-health-tooltip-header { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
-            .hypwa-health-tooltip-badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; line-height: 1.3; }
-            .hypwa-health-tooltip-badge.hypwa-badge-mandatory { background-color: #ef4444; color: #ffffff; }
-            .hypwa-health-tooltip-badge.hypwa-badge-optional { background-color: #0284c7; color: #ffffff; }
-            .hypwa-health-tooltip-badge.hypwa-badge-passed { background-color: #10b981; color: #ffffff; }
-            .hypwa-health-tooltip-title { font-size: 11.5px; font-weight: 600; color: #f8fafc; }
-            .hypwa-health-tooltip-desc { display: block; font-size: 11px; color: #cbd5e1; line-height: 1.45; font-weight: 400; }
-        ' );
-
         wp_add_inline_style( 'wp-admin', '
             #wpcontent { padding-left: 0 !important; background: #f8fafc !important; }
             .notice, #wpfooter { display: none !important; }
