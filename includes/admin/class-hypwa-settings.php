@@ -45,13 +45,35 @@ class HYPWA_Settings {
             HYPWA_VERSION 
         );
 
+        $css_file = HYPWA_PLUGIN_DIR_PATH . "assets/admin/css/settings{$min}.css";
+        $css_ver  = file_exists( $css_file ) ? (string) filemtime( $css_file ) : HYPWA_VERSION;
+
         wp_enqueue_style(
             'hypwa-admin-styles',
             HYPWA_DIR_URI . "assets/admin/css/settings{$min}.css",
-            ['hypwa-select2-styles'],   // ← depends on select2 CSS, loads after
-            HYPWA_VERSION
+            ['hypwa-select2-styles'],
+            $css_ver
         );
         wp_style_add_data( 'hypwa-admin-styles', 'rtl', true );
+
+        wp_add_inline_style( 'hypwa-admin-styles', '
+            .hypwa-health-row { display: flex; align-items: center; width: 100%; }
+            .hypwa-health-row-link { display: flex; justify-content: space-between; align-items: center; flex: 1; min-width: 0; padding: 10px 0; color: #475569; text-decoration: none; font-size: 13px; font-weight: 500; }
+            .hypwa-health-row-link:hover { color: #2563eb; }
+            .hypwa-health-status-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 4px; margin-right: 8px; flex-shrink: 0; vertical-align: middle; }
+            .hypwa-health-status-icon.hypwa-has-issue { cursor: help; }
+            .hypwa-health-status-icon .dashicons { margin-right: 0 !important; font-size: 15px; width: 15px; height: 15px; }
+            .hypwa-health-tooltip { display: none !important; position: absolute; bottom: calc(100% + 10px); left: -8px; width: 250px; background-color: #0f172a; color: #f8fafc; border-radius: 8px; padding: 10px 12px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.35); border: 1px solid #334155; z-index: 9999; pointer-events: none; text-align: left; white-space: normal; box-sizing: border-box; }
+            .hypwa-health-tooltip::after { content: ""; position: absolute; top: 100%; left: 12px; border-width: 6px; border-style: solid; border-color: #0f172a transparent transparent transparent; }
+            .hypwa-health-status-icon:hover .hypwa-health-tooltip { display: block !important; }
+            .hypwa-health-tooltip-header { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+            .hypwa-health-tooltip-badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; line-height: 1.3; }
+            .hypwa-health-tooltip-badge.hypwa-badge-mandatory { background-color: #ef4444; color: #ffffff; }
+            .hypwa-health-tooltip-badge.hypwa-badge-optional { background-color: #0284c7; color: #ffffff; }
+            .hypwa-health-tooltip-badge.hypwa-badge-passed { background-color: #10b981; color: #ffffff; }
+            .hypwa-health-tooltip-title { font-size: 11.5px; font-weight: 600; color: #f8fafc; }
+            .hypwa-health-tooltip-desc { display: block; font-size: 11px; color: #cbd5e1; line-height: 1.45; font-weight: 400; }
+        ' );
 
         wp_add_inline_style( 'wp-admin', '
             #wpcontent { padding-left: 0 !important; background: #f8fafc !important; }
@@ -481,68 +503,82 @@ class HYPWA_Settings {
                                 <p class="hypwa-widget-desc"><?php esc_html_e( 'Ensure your PWA is properly configured and working as expected.', 'hyper-pwa' ); ?></p>
 
                                 <ul class="hypwa-side-links-list">
-                                    <li>
-                                        <a href="#">
-                                            <span>
-                                                <span class="dashicons <?php echo esc_attr( $is_https ? 'dashicons-yes-alt' : 'dashicons-dismiss' ); ?>" style="color: <?php echo esc_attr( $is_https ? '#16a34a' : '#dc2626' ); ?>;"></span>
-                                                <?php esc_html_e( 'HTTPS', 'hyper-pwa' ); ?>
-                                            </span>
-                                            <span style="font-size: 11px; color: #64748b;">
-                                                <?php echo esc_html( $is_https ? __( 'Enabled', 'hyper-pwa' ) : __( 'Disabled', 'hyper-pwa' ) ); ?>
-                                            </span>
-                                        </a>
-                                    </li>
+                                    <?php
+                                    // 1. HTTPS
+                                    $this->render_health_check_item( [
+                                        'label'         => __( 'HTTPS', 'hyper-pwa' ),
+                                        'url'           => '#',
+                                        'is_healthy'    => $is_https,
+                                        'status_label'  => $is_https ? __( 'Enabled', 'hyper-pwa' ) : __( 'Disabled', 'hyper-pwa' ),
+                                        'requirement'   => 'mandatory',
+                                        'issue_icon'    => 'dashicons-dismiss',
+                                        'issue_color'   => '#dc2626',
+                                        'issue_title'   => __( 'SSL Required', 'hyper-pwa' ),
+                                        'issue_desc'    => __( 'HTTPS is strictly mandatory for PWA. Browsers will refuse to register Service Workers and block PWA installation on insecure HTTP connections.', 'hyper-pwa' ),
+                                        'healthy_title' => __( 'HTTPS Active', 'hyper-pwa' ),
+                                        'healthy_desc'  => __( 'Your website is running securely over HTTPS. Service Workers and PWA installation are fully supported.', 'hyper-pwa' ),
+                                    ] );
 
-                                    <li>
-                                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=hypwa-settings' ) ); ?>">
-                                            <span>
-                                                <span class="dashicons <?php echo esc_attr( $is_manifest_valid ? 'dashicons-yes-alt' : 'dashicons-dismiss' ); ?>" style="color: <?php echo esc_attr( $is_manifest_valid ? '#16a34a' : '#dc2626' ); ?>;"></span>
-                                                <?php esc_html_e( 'Manifest', 'hyper-pwa' ); ?>
-                                            </span>
-                                            <span style="font-size: 11px; color: <?php echo esc_attr( $is_manifest_valid ? '#64748b' : '#ef4444' ); ?>;<?php echo $is_manifest_valid ? '' : ' font-weight: 600;'; ?>">
-                                                <?php echo esc_html( $is_manifest_valid ? __( 'Valid', 'hyper-pwa' ) : __( 'Invalid', 'hyper-pwa' ) ); ?>
-                                            </span>
-                                        </a>
-                                    </li>
+                                    // 2. Manifest
+                                    $this->render_health_check_item( [
+                                        'label'         => __( 'Manifest', 'hyper-pwa' ),
+                                        'url'           => admin_url( 'admin.php?page=hypwa-settings#hypwa_app_name' ),
+                                        'is_healthy'    => $is_manifest_valid,
+                                        'status_label'  => $is_manifest_valid ? __( 'Valid', 'hyper-pwa' ) : __( 'Invalid', 'hyper-pwa' ),
+                                        'requirement'   => 'mandatory',
+                                        'issue_icon'    => 'dashicons-dismiss',
+                                        'issue_color'   => '#dc2626',
+                                        'issue_title'   => __( 'Manifest Required', 'hyper-pwa' ),
+                                        'issue_desc'    => __( 'A valid Web App Manifest is mandatory. Browsers require it to identify your site as an installable app, display splash screens, and set app identity.', 'hyper-pwa' ),
+                                        'healthy_title' => __( 'Manifest Valid', 'hyper-pwa' ),
+                                        'healthy_desc'  => __( 'Web App Manifest is properly configured with all required metadata for installation.', 'hyper-pwa' ),
+                                    ] );
 
-                                    <li>
-                                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=hypwa-settings' ) ); ?>">
-                                            <span>
-                                                <span class="dashicons <?php echo esc_attr( $is_sw_active ? 'dashicons-yes-alt' : 'dashicons-dismiss' ); ?>" style="color: <?php echo esc_attr( $is_sw_active ? '#16a34a' : '#dc2626' ); ?>;"></span>
-                                                <?php esc_html_e( 'Service Worker', 'hyper-pwa' ); ?>
-                                            </span>
-                                            <span style="font-size: 11px; color: <?php echo esc_attr( $is_sw_active ? '#64748b' : '#ef4444' ); ?>;<?php echo $is_sw_active ? '' : ' font-weight: 600;'; ?>">
-                                                <?php echo esc_html( $is_sw_active ? __( 'Active', 'hyper-pwa' ) : __( 'Missing', 'hyper-pwa' ) ); ?>
-                                            </span>
-                                        </a>
-                                    </li>
+                                    // 3. Service Worker
+                                    $this->render_health_check_item( [
+                                        'label'         => __( 'Service Worker', 'hyper-pwa' ),
+                                        'url'           => admin_url( 'admin.php?page=hypwa-settings' ),
+                                        'is_healthy'    => $is_sw_active,
+                                        'status_label'  => $is_sw_active ? __( 'Active', 'hyper-pwa' ) : __( 'Missing', 'hyper-pwa' ),
+                                        'requirement'   => 'mandatory',
+                                        'issue_icon'    => 'dashicons-dismiss',
+                                        'issue_color'   => '#dc2626',
+                                        'issue_title'   => __( 'Service Worker Required', 'hyper-pwa' ),
+                                        'issue_desc'    => __( 'The Service Worker is mandatory for PWA capabilities. It handles background caching, offline mode, and is required for browsers to show the install banner.', 'hyper-pwa' ),
+                                        'healthy_title' => __( 'Service Worker Active', 'hyper-pwa' ),
+                                        'healthy_desc'  => __( 'Service Worker is active and handling background caching and offline functionality.', 'hyper-pwa' ),
+                                    ] );
 
-                                    <li>
-                                        <?php $has_app_icon = hypwa_has_app_icon(); ?>
-                                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=hypwa-settings' ) ); ?>">
-                                            <span>
-                                                <span class="dashicons <?php echo esc_attr( $has_app_icon ? 'dashicons-yes-alt' : 'dashicons-warning' ); ?>" style="color: <?php echo esc_attr( $has_app_icon ? '#16a34a' : '#ef4444' ); ?>;"></span>
-                                                <?php esc_html_e( 'App Icon', 'hyper-pwa' ); ?>
-                                            </span>
-                                            <span style="font-size: 11px; color: <?php echo esc_attr( $has_app_icon ? '#64748b' : '#ef4444' ); ?>;<?php echo $has_app_icon ? '' : ' font-weight: 600;'; ?>">
-                                                <?php echo esc_html( $has_app_icon ? __( 'Configured', 'hyper-pwa' ) : __( 'Missing', 'hyper-pwa' ) ); ?>
-                                            </span>
-                                        </a>
-                                    </li>
+                                    // 4. App Icon
+                                    $this->render_health_check_item( [
+                                        'label'         => __( 'App Icon', 'hyper-pwa' ),
+                                        'url'           => admin_url( 'admin.php?page=hypwa-settings#hypwa_app_icon_upload' ),
+                                        'is_healthy'    => $has_app_icon,
+                                        'status_label'  => $has_app_icon ? __( 'Configured', 'hyper-pwa' ) : __( 'Missing', 'hyper-pwa' ),
+                                        'requirement'   => 'required_install',
+                                        'issue_icon'    => 'dashicons-warning',
+                                        'issue_color'   => '#ef4444',
+                                        'issue_title'   => __( 'App Icon Required', 'hyper-pwa' ),
+                                        'issue_desc'    => __( 'Mandatory for PWA installation. Browsers (Chrome, Edge, Safari) require at least a 192×192px and 512×512px icon before triggering the install prompt.', 'hyper-pwa' ),
+                                        'healthy_title' => __( 'App Icon Configured', 'hyper-pwa' ),
+                                        'healthy_desc'  => __( 'High-resolution app icons are set up for desktop and mobile home screens.', 'hyper-pwa' ),
+                                    ] );
 
-                                    <li>
-                                        <?php $has_offline_page = hypwa_has_offline_page(); ?>
-                                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=hypwa-settings' ) ); ?>">
-                                            <span>
-                                                <span class="dashicons <?php echo esc_attr( $has_offline_page ? 'dashicons-yes-alt' : 'dashicons-warning' ); ?>" style="color: <?php echo esc_attr( $has_offline_page ? '#16a34a' : '#ef4444' ); ?>;"></span>
-                                                <?php esc_html_e( 'Offline Page', 'hyper-pwa' ); ?>
-                                            </span>
-                                            <span style="font-size: 11px; color: <?php echo esc_attr( $has_offline_page ? '#64748b' : '#ef4444' ); ?>;<?php echo $has_offline_page ? '' : ' font-weight: 600;'; ?>">
-                                                <?php echo esc_html( $has_offline_page ? __( 'Configured', 'hyper-pwa' ) : __( 'Missing', 'hyper-pwa' ) ); ?>
-                                            </span>
-                                        </a>
-                                    </li>
-
+                                    // 5. Offline Page
+                                    $this->render_health_check_item( [
+                                        'label'         => __( 'Offline Page', 'hyper-pwa' ),
+                                        'url'           => admin_url( 'admin.php?page=hypwa-settings#hypwa_offline_page_select_field' ),
+                                        'is_healthy'    => $has_offline_page,
+                                        'status_label'  => $has_offline_page ? __( 'Configured', 'hyper-pwa' ) : __( 'Missing', 'hyper-pwa' ),
+                                        'requirement'   => 'optional',
+                                        'issue_icon'    => 'dashicons-warning',
+                                        'issue_color'   => '#f59e0b',
+                                        'issue_title'   => __( 'Optional Feature', 'hyper-pwa' ),
+                                        'issue_desc'    => __( 'This is optional and not mandatory for PWA installation. Your app will still install without it, but setting a custom offline page provides a better user experience when visitors lose connection.', 'hyper-pwa' ),
+                                        'healthy_title' => __( 'Offline Page Configured', 'hyper-pwa' ),
+                                        'healthy_desc'  => __( 'A custom offline fallback page is configured to display when visitors are disconnected.', 'hyper-pwa' ),
+                                    ] );
+                                    ?>
                                 </ul>
 
                             </div>
@@ -994,6 +1030,74 @@ class HYPWA_Settings {
 
     }
 
+    /**
+     * Render a PWA health check item with status tooltip.
+     *
+     * @param array $args Health check item arguments.
+     */
+    public function render_health_check_item( $args ) {
+        $label         = isset( $args['label'] ) ? $args['label'] : '';
+        $url           = isset( $args['url'] ) ? $args['url'] : '#';
+        $is_healthy    = ! empty( $args['is_healthy'] );
+        $status_label  = isset( $args['status_label'] ) ? $args['status_label'] : '';
+        $requirement   = isset( $args['requirement'] ) ? $args['requirement'] : 'mandatory'; // 'mandatory', 'required_install', 'optional'
+        $issue_icon    = isset( $args['issue_icon'] ) ? $args['issue_icon'] : 'dashicons-dismiss';
+        $issue_color   = isset( $args['issue_color'] ) ? $args['issue_color'] : ( ( 'optional' === $requirement ) ? '#f59e0b' : '#dc2626' );
+        $issue_title   = isset( $args['issue_title'] ) ? $args['issue_title'] : '';
+        $issue_desc    = isset( $args['issue_desc'] ) ? $args['issue_desc'] : '';
+        $healthy_title = isset( $args['healthy_title'] ) ? $args['healthy_title'] : '';
+        $healthy_desc  = isset( $args['healthy_desc'] ) ? $args['healthy_desc'] : '';
+
+        if ( $is_healthy ) {
+            $icon_class    = 'dashicons-yes-alt';
+            $icon_color    = '#16a34a';
+            $badge_class   = 'hypwa-badge-passed';
+            $badge_text    = __( 'Passed', 'hyper-pwa' );
+            $tooltip_title = $healthy_title;
+            $tooltip_desc  = $healthy_desc;
+            $status_color  = '#64748b';
+            $status_weight = '';
+        } else {
+            $icon_class    = $issue_icon;
+            $icon_color    = $issue_color;
+            if ( 'optional' === $requirement ) {
+                $badge_class = 'hypwa-badge-optional';
+                $badge_text  = __( 'Optional', 'hyper-pwa' );
+            } elseif ( 'required_install' === $requirement ) {
+                $badge_class = 'hypwa-badge-mandatory';
+                $badge_text  = __( 'Required for Install', 'hyper-pwa' );
+            } else {
+                $badge_class = 'hypwa-badge-mandatory';
+                $badge_text  = __( 'Mandatory', 'hyper-pwa' );
+            }
+            $tooltip_title = $issue_title;
+            $tooltip_desc  = $issue_desc;
+            $status_color  = ( 'optional' === $requirement ) ? '#d97706' : '#ef4444';
+            $status_weight = 'font-weight: 600;';
+        }
+        ?>
+        <li>
+            <div class="hypwa-health-row">
+                <span class="hypwa-health-status-icon <?php echo $is_healthy ? 'hypwa-is-healthy' : 'hypwa-has-issue'; ?>" aria-label="<?php echo esc_attr( $badge_text . ': ' . $tooltip_desc ); ?>">
+                    <span class="dashicons <?php echo esc_attr( $icon_class ); ?>" style="color: <?php echo esc_attr( $icon_color ); ?>;"></span>
+                    <span class="hypwa-health-tooltip" role="tooltip">
+                        <span class="hypwa-health-tooltip-header">
+                            <span class="hypwa-health-tooltip-badge <?php echo esc_attr( $badge_class ); ?>"><?php echo esc_html( $badge_text ); ?></span>
+                            <span class="hypwa-health-tooltip-title"><?php echo esc_html( $tooltip_title ); ?></span>
+                        </span>
+                        <span class="hypwa-health-tooltip-desc"><?php echo esc_html( $tooltip_desc ); ?></span>
+                    </span>
+                </span>
+                <a href="<?php echo esc_url( $url ); ?>" class="hypwa-health-row-link">
+                    <span class="hypwa-health-item-title"><?php echo esc_html( $label ); ?></span>
+                    <span style="font-size: 11px; color: <?php echo esc_attr( $status_color ); ?>; <?php echo esc_attr( $status_weight ); ?>">
+                        <?php echo esc_html( $status_label ); ?>
+                    </span>
+                </a>
+            </div>
+        </li>
+        <?php
+    }
 
 }
 

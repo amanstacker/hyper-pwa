@@ -1234,6 +1234,28 @@
             $('.hypwa-cn-icon-popover').remove();
         });
 
+        // Smooth scroll for PWA Health Check links
+        $(document).on('click', '.hypwa-health-row-link', function(e) {
+            var href = $(this).attr('href');
+            if (href && href.indexOf('#') !== -1) {
+                var hash = href.substring(href.indexOf('#'));
+                if (hash && hash !== '#' && $(hash).length) {
+                    e.preventDefault();
+                    var $target = $(hash).closest('.hypwa-field-row, tr, .hypwa-card-row, .hypwa-mock-preview-box');
+                    if (!$target.length) {
+                        $target = $(hash);
+                    }
+                    $('html, body').animate({
+                        scrollTop: Math.max(0, $target.offset().top - 90)
+                    }, 350);
+                    $target.css({ transition: 'background-color 0.3s ease', backgroundColor: '#eff6ff' });
+                    setTimeout(function() {
+                        $target.css('backgroundColor', '');
+                    }, 1500);
+                }
+            }
+        });
+
         // Initial render
         updateNoticePreview();
     });

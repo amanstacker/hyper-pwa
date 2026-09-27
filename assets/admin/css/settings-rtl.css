@@ -79,3 +79,18 @@
     border-left: 1px solid #dbeafe;
     border-right: 4px solid #2563eb;
 }
+
+/* PWA Health Status Tooltip in RTL */
+.rtl .hypwa-health-status-icon {
+    margin-right: 0;
+    margin-left: 8px;
+}
+.rtl .hypwa-health-tooltip {
+    left: auto;
+    right: -8px;
+    text-align: right;
+}
+.rtl .hypwa-health-tooltip::after {
+    left: auto;
+    right: 12px;
+}
