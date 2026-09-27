@@ -15,9 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Check if running inside standalone PWA display mode
     var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-    var isAlreadyInstalled = localStorage.getItem('hypwa_installed') === 'true';
+    var isAlreadyInstalled = localStorage.getItem('hypwa_installed') === 'true' || localStorage.getItem('hypwa_installed_ios') === 'true';
 
     if (isStandalone) {
+        try {
+            localStorage.setItem('hypwa_installed', 'true');
+            localStorage.setItem('hypwa_installed_ios', 'true');
+        } catch(e) {}
         hypwaLog('Hyper PWA Button: Hidden because user is browsing inside the standalone PWA app.');
         return;
     }

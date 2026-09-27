@@ -19,8 +19,20 @@
 
     // Initialize prompt
     function initIOSPrompt(force = false) {
+        if ( isStandaloneMode() ) {
+            try {
+                localStorage.setItem('hypwa_installed_ios', 'true');
+                localStorage.setItem('hypwa_installed', 'true');
+            } catch (e) {}
+            return;
+        }
+
         // Only run on iOS devices in non-standalone (browser) mode
-        if ( ! getMobileOS() || isStandaloneMode() ) {
+        if ( ! getMobileOS() ) {
+            return;
+        }
+
+        if ( ! force && ( localStorage.getItem('hypwa_installed_ios') === 'true' || localStorage.getItem('hypwa_installed') === 'true' ) ) {
             return;
         }
 
