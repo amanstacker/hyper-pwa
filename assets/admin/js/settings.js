@@ -455,7 +455,7 @@
     function hypwa_show_notice(type, message) {
         var $bar  = $('.hypwa-bottom-status');
         var color = type === 'success' ? '#10b981' : '#ef4444';
-        var icon  = type === 'success' ? '✓' : '✕';
+        var icon  = type === 'success' ? '\u2713' : '\u2715';
 
         $bar.html('<span style="color:' + color + '; font-weight:600;">' + icon + ' ' + message + '</span>');
 
