@@ -131,7 +131,7 @@ function hypwa_service_worker_template() {
 	$sw .= hypwa_sw_load_module( $base . 'activate.php' );
 	$sw .= hypwa_sw_load_module( $base . 'fetch.php' );
 
-	if ( '1' === HYPWA_Options::get( 'cf_push_status' ) && '1' === HYPWA_Options::get( 'cf_push_connected' ) && ! class_exists( 'HyperPushX' ) ) {
+	if ( '1' === HYPWA_Options::get( 'cf_push_status' ) && '1' === HYPWA_Options::get( 'cf_push_connected' ) && ! class_exists( 'HYPUX' ) ) {
 		$sw .= hypwa_sw_load_module( $base . 'push.php' );
 	}
 

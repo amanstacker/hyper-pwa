@@ -113,7 +113,7 @@ function hypwa_enqueue_service_worker() {
 
 	wp_enqueue_script( 'hypwa-register-sw' );
 
-	if ( '1' === HYPWA_Options::get( 'cf_push_status' ) && '1' === HYPWA_Options::get( 'cf_push_connected' ) && ! class_exists( 'HyperPushX' ) ) {
+	if ( '1' === HYPWA_Options::get( 'cf_push_status' ) && '1' === HYPWA_Options::get( 'cf_push_connected' ) && ! class_exists( 'HYPUX' ) ) {
 		wp_register_script(
 			'hypwa-push-sdk',
 			HYPWA_PLUGIN_URL . "assets/customer/js/hypwa-push-sdk{$min}.js",
@@ -262,7 +262,7 @@ function hypwa_send_post_publish_push( $new_status, $old_status, $post ) {
 	}
 
 	// Only send if push is enabled, connected, and dedicated plugin is not active
-	if ( '1' !== HYPWA_Options::get( 'cf_push_status', '0' ) || '1' !== HYPWA_Options::get( 'cf_push_connected', '0' ) || class_exists( 'HyperPushX' ) ) {
+	if ( '1' !== HYPWA_Options::get( 'cf_push_status', '0' ) || '1' !== HYPWA_Options::get( 'cf_push_connected', '0' ) || class_exists( 'HYPUX' ) ) {
 		return;
 	}
 

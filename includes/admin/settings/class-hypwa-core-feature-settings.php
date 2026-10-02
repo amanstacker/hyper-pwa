@@ -1366,7 +1366,7 @@ class HYPWA_Core_Feature_Settings {
 
 	public static function render_push_notifications_fields() {
 		// 1. Check if HyperPushX is active
-		if ( class_exists( 'HyperPushX' ) ) {
+		if ( class_exists( 'HYPUX' ) ) {
 			?>
 			<div class="hypwa-notice hypwa-notice-warning" style="margin: 15px 0; padding: 12px 16px;">
 				<div class="hypwa-notice-icon">
@@ -1376,7 +1376,7 @@ class HYPWA_Core_Feature_Settings {
 					<strong><?php esc_html_e( 'Dedicated HyperPush-X Plugin is Active', 'hyper-pwa' ); ?></strong>
 					<span class="hypwa-notice-desc" style="white-space: normal; display: block; margin-top: 4px;"><?php esc_html_e( 'Push notifications are currently managed via the dedicated HyperPush-X plugin. To avoid configuration conflicts, native push settings inside Hyper PWA have been disabled.', 'hyper-pwa' ); ?></span>
 				</div>
-				<a href="<?php echo esc_url( admin_url( 'admin.php?page=hyperpushx' ) ); ?>" class="hypwa-notice-btn">
+				<a href="<?php echo esc_url( admin_url( 'admin.php?page=hypux' ) ); ?>" class="hypwa-notice-btn">
 					<?php esc_html_e( 'Go to Dashboard', 'hyper-pwa' ); ?>
 				</a>
 			</div>
@@ -1578,7 +1578,7 @@ class HYPWA_Core_Feature_Settings {
 
 	public static function get_subscriber_stats() {
 		$connected = HYPWA_Options::get( 'cf_push_connected', '0' );
-		if ( '1' !== $connected || class_exists( 'HyperPushX' ) ) {
+		if ( '1' !== $connected || class_exists( 'HYPUX' ) ) {
 			return null;
 		}
 
