@@ -322,7 +322,7 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
                 wp_send_json_error( [ 'message' => esc_html__( 'API Key is required.', 'hyper-pwa' ) ] );
             }
 
-            $url = HYPWA_PUSH_API_BASE . '/api/v1/websites';
+            $url = rtrim( HYPWA_PUSH_API_BASE, '/' ) . '/api/v1/websites';
             $payload = [
                 'name'   => get_bloginfo( 'name' ),
                 'domain' => home_url(),
@@ -373,7 +373,7 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
                     'website_id' => $website_id,
                 ] );
             } else {
-                $err_msg = isset( $data['message'] ) ? $data['message'] : esc_html__( 'Invalid API Key or server error.', 'hyper-pwa' );
+                $err_msg = isset( $data['message'] ) ? $data['message'] : ( isset( $data['error'] ) ? $data['error'] : esc_html__( 'Invalid API Key or server error.', 'hyper-pwa' ) );
                 wp_send_json_error( [ 'message' => $err_msg ] );
             }
         }
