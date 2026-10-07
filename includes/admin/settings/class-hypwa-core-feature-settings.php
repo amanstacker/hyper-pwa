@@ -535,7 +535,7 @@ class HYPWA_Core_Feature_Settings {
 	                    'name'  => 'hypwa_options[apple_touch_icon]',
 	                    'value' => HYPWA_Options::get('apple_touch_icon'),
 	                    'label' => esc_html__('Apple Touch Icon', 'hyper-pwa'),
-	                    'desc'  => esc_html__('Icon used on iOS/iPadOS home screens and Safari on macOS. Recommended: Square PNG, 180×180 pixels. Falls back to default app icon.', 'hyper-pwa'),
+	                    'desc'  => esc_html__('Dedicated icon for iOS/iPadOS home screens and Safari (overrides standard manifest icons). Recommended: Square PNG without transparency, 180×180 pixels. Falls back to default app icon.', 'hyper-pwa'),
 	                ],
 	                [
 	                    'type'     => 'select',
@@ -544,7 +544,7 @@ class HYPWA_Core_Feature_Settings {
 	                    'name'     => 'hypwa_options[apple_status_bar_style]',
 	                    'value'    => HYPWA_Options::get('apple_status_bar_style', 'default'),
 	                    'label'    => esc_html__('iOS Status Bar Style', 'hyper-pwa'),
-	                    'desc'     => esc_html__('Appearance of the status bar on iOS devices in standalone mode.', 'hyper-pwa'),
+	                    'desc'     => esc_html__('Appearance of the top status bar on iOS standalone apps (overrides manifest theme color on iOS window frames).', 'hyper-pwa'),
 	                    'options'  => [
 	                        'default'           => esc_html__('Default (White/Black status bar background)', 'hyper-pwa'),
 	                        'black'             => esc_html__('Black (Black status bar background)', 'hyper-pwa'),
@@ -557,7 +557,7 @@ class HYPWA_Core_Feature_Settings {
 	                    'name'  => 'hypwa_options[ios_splash_screens_enabled]',
 	                    'value' => HYPWA_Options::get('ios_splash_screens_enabled', '0'),            
 	                    'label' => esc_html__('iOS Splash Screens', 'hyper-pwa'),
-	                    'desc'  => esc_html__('Generates Apple Startup Image tags to show a branded splash screen on iOS/iPadOS.', 'hyper-pwa'),
+	                    'desc'  => esc_html__('Generates Apple Startup Image tags using your App Basic Background Color & Splash Icon to show branded launch screens across all iPhone and iPad screen sizes.', 'hyper-pwa'),
 	                ],
 	                [
 	                    'type'  => 'section_head',

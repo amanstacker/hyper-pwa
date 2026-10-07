@@ -161,7 +161,7 @@ class HYPWA_App_Basic_Settings {
             'value'         => HYPWA_Options::get('launch_mode', 'standalone'),
             'label'         => esc_html__('Launch Mode', 'hyper-pwa'),
             'desc'          => esc_html__('Controls the display UI. Standalone hides browser bars to look like a native app.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . sprintf(
-                esc_html__('iOS Limitation: Fullscreen & Minimal UI modes are not supported on iOS Safari. Standalone mode is enabled automatically when iOS compatibility is active in %s.', 'hyper-pwa'),
+                esc_html__('iOS Limitation: Fullscreen & Minimal UI modes are not supported on iOS Safari. Standalone mode is enabled automatically on iOS Home Screen apps. Configure status bar style in %s.', 'hyper-pwa'),
                 '<a href="' . esc_url($ios_tab_url) . '" class="hypwa-ios-notice-link">' . esc_html__('Core Features > iOS & Safari', 'hyper-pwa') . '</a>'
             ) . '</span>',
             'options'       => [

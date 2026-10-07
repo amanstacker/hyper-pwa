@@ -1617,7 +1617,7 @@ msgid "iOS Limitation: iOS Safari does not support manifest orientation locking;
 msgstr ""
 
 #: includes/admin/settings/class-hypwa-app-basic-settings.php:164
-msgid "iOS Limitation: Fullscreen & Minimal UI modes are not supported on iOS Safari. Standalone mode is enabled automatically when iOS compatibility is active in %s."
+msgid "iOS Limitation: Fullscreen & Minimal UI modes are not supported on iOS Safari. Standalone mode is enabled automatically on iOS Home Screen apps. Configure status bar style in %s."
 msgstr ""
 
 #: includes/admin/settings/class-hypwa-app-basic-settings.php:182
@@ -1626,6 +1626,18 @@ msgstr ""
 
 #: includes/admin/settings/class-hypwa-app-basic-settings.php:194
 msgid "iOS Limitation: iOS does not automatically use this background color for splash screens. Enable dedicated iOS Splash Screens in %s."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-core-feature-settings.php:538
+msgid "Dedicated icon for iOS/iPadOS home screens and Safari (overrides standard manifest icons). Recommended: Square PNG without transparency, 180×180 pixels. Falls back to default app icon."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-core-feature-settings.php:547
+msgid "Appearance of the top status bar on iOS standalone apps (overrides manifest theme color on iOS window frames)."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-core-feature-settings.php:560
+msgid "Generates Apple Startup Image tags using your App Basic Background Color & Splash Icon to show branded launch screens across all iPhone and iPad screen sizes."
 msgstr ""
 
 
