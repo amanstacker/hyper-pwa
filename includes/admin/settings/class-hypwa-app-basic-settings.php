@@ -67,12 +67,17 @@ class HYPWA_App_Basic_Settings {
             'desc'          => esc_html__('Provide a brief description of your app. It may be displayed on supported devices and platforms to help users understand its purpose.', 'hyper-pwa'),
         ]);
 
+        $ios_tab_url = admin_url('admin.php?page=hypwa-settings&tab=core_features#hypwa_cf_ios_compatibility');
+
         HYPWA_Settings::render('upload', [
             'id'            => 'hypwa_app_icon_upload',
             'name'          => 'hypwa_options[app_icon]',
             'value'         => HYPWA_Options::get('app_icon'),
             'label'         => esc_html__('Icon', 'hyper-pwa'),
-            'desc'          => esc_html__('The primary launcher icon for your app. Recommended: Square PNG, 512×512 pixels.', 'hyper-pwa'),
+            'desc'          => esc_html__('The primary launcher icon for your app. Recommended: Square PNG, 512×512 pixels.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . sprintf(
+                esc_html__('iOS Limitation: iOS Safari ignores manifest icons and requires an Apple Touch Icon (180×180). Configure your dedicated Apple icon in %s.', 'hyper-pwa'),
+                '<a href="' . esc_url($ios_tab_url) . '" class="hypwa-ios-notice-link">' . esc_html__('Core Features > iOS & Safari', 'hyper-pwa') . '</a>'
+            ) . '</span>',
         ]);
 
         HYPWA_Settings::render('upload', [
@@ -80,7 +85,10 @@ class HYPWA_App_Basic_Settings {
             'name'          => 'hypwa_options[maskable_icon]',
             'value'         => HYPWA_Options::get('maskable_icon'),
             'label'         => esc_html__('Maskable Icon', 'hyper-pwa'),
-            'desc'          => esc_html__('An adaptive icon with a safe zone that allows devices to crop it without cutting off key artwork. Recommended: Square PNG, 512×512 pixels.', 'hyper-pwa'),
+            'desc'          => esc_html__('An adaptive icon with a safe zone that allows devices to crop it without cutting off key artwork. Recommended: Square PNG, 512×512 pixels.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . sprintf(
+                esc_html__('iOS Limitation: Maskable icons are Android-only. For iOS/iPadOS home screens, configure your Apple Touch Icon in %s.', 'hyper-pwa'),
+                '<a href="' . esc_url($ios_tab_url) . '" class="hypwa-ios-notice-link">' . esc_html__('Core Features > iOS & Safari', 'hyper-pwa') . '</a>'
+            ) . '</span>',
         ]);
 
         HYPWA_Settings::render('upload', [
@@ -88,7 +96,7 @@ class HYPWA_App_Basic_Settings {
             'name'          => 'hypwa_options[monochrome_icon]',
             'value'         => HYPWA_Options::get('monochrome_icon'),
             'label'         => esc_html__('Monochrome Icon', 'hyper-pwa'),
-            'desc'          => esc_html__('A single-color transparent icon used by OS environments for taskbars, notifications, and badges, dynamically tinting to match system themes. Recommended: Square PNG, 512×512 pixels.', 'hyper-pwa'),
+            'desc'          => esc_html__('A single-color transparent icon used by OS environments for taskbars, notifications, and badges, dynamically tinting to match system themes. Recommended: Square PNG, 512×512 pixels.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . esc_html__('iOS Limitation: Monochrome badge icons are not supported on iOS Safari.', 'hyper-pwa') . '</span>',
         ]);        
 
         HYPWA_Settings::render('upload', [
@@ -96,7 +104,10 @@ class HYPWA_App_Basic_Settings {
             'name'          => 'hypwa_options[splash_screen_icon]',
             'value'         => HYPWA_Options::get('splash_screen_icon'),
             'label'         => esc_html__('Splash Screen Icon', 'hyper-pwa'),
-            'desc'          => esc_html__('The icon shown in the middle of the splash screen. Recommended: PNG with transparent background, 512×512 pixels.', 'hyper-pwa'),
+            'desc'          => esc_html__('The icon shown in the middle of the splash screen. Recommended: PNG with transparent background, 512×512 pixels.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . sprintf(
+                esc_html__('iOS Limitation: iOS does not auto-generate splash screens from manifest icons. Enable auto-generated startup splash images in %s.', 'hyper-pwa'),
+                '<a href="' . esc_url($ios_tab_url) . '" class="hypwa-ios-notice-link">' . esc_html__('Core Features > iOS & Safari', 'hyper-pwa') . '</a>'
+            ) . '</span>',
         ]);
 
         HYPWA_Settings::render('select', [
@@ -135,7 +146,7 @@ class HYPWA_App_Basic_Settings {
             'name'          => 'hypwa_options[orientation]',
             'value'         => HYPWA_Options::get('orientation', 'portrait'),
             'label'         => esc_html__('Orientation', 'hyper-pwa'),
-            'desc'          => esc_html__('Locks the screen display view orientation, or lets it rotate dynamically.', 'hyper-pwa'),
+            'desc'          => esc_html__('Locks the screen display view orientation, or lets it rotate dynamically.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . esc_html__('iOS Limitation: iOS Safari does not support manifest orientation locking; the orientation is always controlled by the user\'s physical device position.', 'hyper-pwa') . '</span>',
             'options'       => [
                 'follow-device-orientation' => esc_html__('Follow Device Orientation', 'hyper-pwa'),
                 'portrait'                  => esc_html__('Portrait', 'hyper-pwa'),
@@ -149,7 +160,10 @@ class HYPWA_App_Basic_Settings {
             'name'          => 'hypwa_options[launch_mode]',
             'value'         => HYPWA_Options::get('launch_mode', 'standalone'),
             'label'         => esc_html__('Launch Mode', 'hyper-pwa'),
-            'desc'          => esc_html__('Controls the display UI. Standalone hides browser bars to look like a native app.', 'hyper-pwa'),
+            'desc'          => esc_html__('Controls the display UI. Standalone hides browser bars to look like a native app.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . sprintf(
+                esc_html__('iOS Limitation: Fullscreen & Minimal UI modes are not supported on iOS Safari. Standalone mode is enabled automatically when iOS compatibility is active in %s.', 'hyper-pwa'),
+                '<a href="' . esc_url($ios_tab_url) . '" class="hypwa-ios-notice-link">' . esc_html__('Core Features > iOS & Safari', 'hyper-pwa') . '</a>'
+            ) . '</span>',
             'options'       => [
                 'full-screen' => esc_html__('Full Screen', 'hyper-pwa'),
                 'standalone'  => esc_html__('Standalone', 'hyper-pwa'),
@@ -164,7 +178,10 @@ class HYPWA_App_Basic_Settings {
             'name'          => 'hypwa_options[theme_color]',
             'value'         => HYPWA_Options::get('theme_color', '#2563eb'),
             'label'         => esc_html__('Theme Color', 'hyper-pwa'),
-            'desc'          => esc_html__('Sets the primary color used for the browser UI and installed app. Choose a color that matches your brand..', 'hyper-pwa'),
+            'desc'          => esc_html__('Sets the primary color used for the browser UI and installed app. Choose a color that matches your brand.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . sprintf(
+                esc_html__('iOS Limitation: iOS Safari ignores manifest theme_color for standalone app window frames. Customize your status bar style in %s.', 'hyper-pwa'),
+                '<a href="' . esc_url($ios_tab_url) . '" class="hypwa-ios-notice-link">' . esc_html__('Core Features > iOS & Safari', 'hyper-pwa') . '</a>'
+            ) . '</span>',
         ]);
 
         HYPWA_Settings::render('color', [
@@ -173,7 +190,10 @@ class HYPWA_App_Basic_Settings {
             'name'          => 'hypwa_options[background_color]',
             'value'         => HYPWA_Options::get('background_color', '#ffffff'),
             'label'         => esc_html__('Background Color', 'hyper-pwa'),
-            'desc'          => esc_html__('Sets the background color of the app\'s splash screen while it loads. Choose a color that matches your app\'s background..', 'hyper-pwa'),
+            'desc'          => esc_html__('Sets the background color of the app\'s splash screen while it loads. Choose a color that matches your app\'s background.', 'hyper-pwa') . '<span class="hypwa-ios-notice">' . sprintf(
+                esc_html__('iOS Limitation: iOS does not automatically use this background color for splash screens. Enable dedicated iOS Splash Screens in %s.', 'hyper-pwa'),
+                '<a href="' . esc_url($ios_tab_url) . '" class="hypwa-ios-notice-link">' . esc_html__('Core Features > iOS & Safari', 'hyper-pwa') . '</a>'
+            ) . '</span>',
         ]);
 
 

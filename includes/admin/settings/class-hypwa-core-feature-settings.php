@@ -16,7 +16,7 @@ class HYPWA_Core_Feature_Settings {
 	    	$toggle_name 	=	$accordion['fields'][0]['name'];
 
 	        ?>
-	        <div class="hypwa-card">
+	        <div class="hypwa-card" id="<?php echo esc_attr( $accordion['id'] ); ?>">
                 <div class="hypwa-card-header">
                     <div class="hypwa-card-title-block">
                         <div class="hypwa-card-icon blue-icon"><span class="<?php echo esc_attr( $accordion['icon'] ); ?>"></span></div>

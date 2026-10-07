@@ -45,14 +45,11 @@ class HYPWA_Settings {
             HYPWA_VERSION 
         );
 
-        $css_file = HYPWA_PLUGIN_DIR_PATH . "assets/admin/css/settings{$min}.css";
-        $css_ver  = file_exists( $css_file ) ? (string) filemtime( $css_file ) : HYPWA_VERSION;
-
         wp_enqueue_style(
             'hypwa-admin-styles',
             HYPWA_DIR_URI . "assets/admin/css/settings{$min}.css",
             ['hypwa-select2-styles'],
-            $css_ver
+            HYPWA_VERSION
         );
         wp_style_add_data( 'hypwa-admin-styles', 'rtl', true );
 

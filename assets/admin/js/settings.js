@@ -1256,6 +1256,40 @@
             }
         });
 
+        // Auto-expand accordion and scroll if URL contains hash
+        function handleUrlHash() {
+            var hash = window.location.hash;
+            if (!hash) return;
+
+            var $target = $(hash);
+            if (!$target.length) return;
+
+            // If target is an accordion card or inside one
+            var $card = $target.hasClass('hypwa-card') ? $target : $target.closest('.hypwa-card');
+            if ($card.length) {
+                var $content = $card.find('.hypwa-card-content');
+                if ($content.length && !$card.hasClass('open')) {
+                    $card.addClass('open');
+                    $content.show();
+                }
+            }
+
+            // Smooth scroll to the target card
+            setTimeout(function() {
+                var scrollTarget = $card.length ? $card : $target;
+                $('html, body').animate({
+                    scrollTop: Math.max(0, scrollTarget.offset().top - 90)
+                }, 350);
+                scrollTarget.css({ transition: 'box-shadow 0.4s ease, border-color 0.4s ease', borderColor: '#3b82f6', boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.25)' });
+                setTimeout(function() {
+                    scrollTarget.css({ borderColor: '', boxShadow: '' });
+                }, 2500);
+            }, 150);
+        }
+
+        handleUrlHash();
+        $(window).on('hashchange', handleUrlHash);
+
         // Initial render
         updateNoticePreview();
     });

@@ -232,6 +232,9 @@
 .hypwa-label-col { width: 60%; padding-right: 15px; }
 .hypwa-label-col label { display: block; font-weight: 500; font-size: 15px; color: #1e293b; margin-bottom: 3px; }
 .hypwa-field-desc { display: block; font-size: 13px; color: #64748b; line-height: 1.5; }
+.hypwa-ios-notice { display: block; color: #d97706; font-weight: 600; font-size: 12.5px; margin-top: 4px; line-height: 1.4; }
+.hypwa-ios-notice-link { color: #2563eb; text-decoration: underline; font-weight: 600; }
+.hypwa-ios-notice-link:hover { color: #1d4ed8; text-decoration: none; }
 
 .hypwa-input-col { width: 40%; }
 .hypwa-controls-vertical-list { display: flex; flex-direction: column; gap: 8px; padding-top: 2px; }
