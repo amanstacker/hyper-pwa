@@ -21,7 +21,13 @@ define( 'HYPWA_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
 
 define('HYPWA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define('HYPWA_PLUGIN_BASENAME', plugin_basename(__FILE__ ) );
-define('HYPWA_PUSH_API_BASE', 'https://hyperpushx.com');
+if ( ! defined( 'HYPWA_PUSH_API_BASE' ) ) {
+	if ( defined( 'HYPUX_API_BASE' ) ) {
+		define( 'HYPWA_PUSH_API_BASE', rtrim( HYPUX_API_BASE, '/' ) );
+	} else {
+		define( 'HYPWA_PUSH_API_BASE', 'https://hyperpushx.com' );
+	}
+}
 
 // Admin Settings
 require_once HYPWA_PLUGIN_DIR_PATH . 'feedback/feedback.php';
