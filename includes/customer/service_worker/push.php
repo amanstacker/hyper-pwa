@@ -19,17 +19,15 @@ self.addEventListener('push', function(event) {
     let title = 'Notification';
     let options = {
         body: '',
-        icon: '/default-icon.png',
-        badge: '/default-badge.png',
         data: { url: '/' }
     };
     try {
         const payload = event.data.json();
         title = payload.title || 'Notification';
         options.body = payload.message || '';
-        options.icon = payload.icon || '/default-icon.png';
-        options.image = payload.image || null;
-        options.badge = payload.badge || '/default-badge.png';
+        if (payload.icon) options.icon = payload.icon;
+        if (payload.image) options.image = payload.image;
+        if (payload.badge) options.badge = payload.badge;
         options.requireInteraction = payload.require_interaction || false;
         options.actions = payload.actions || [];
         options.data = {
