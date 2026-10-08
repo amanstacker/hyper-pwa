@@ -1641,3 +1641,335 @@ msgid "Generates Apple Startup Image tags using your App Basic Background Color 
 msgstr ""
 
 
+
+#: feedback/feedback.php:63
+msgid "I don\'t need PWA functionality anymore"
+msgstr ""
+
+#: feedback/feedback.php:84
+msgid "Clicking "Submit & Deactivate" will email your feedback to the developer. No site data is collected. Click "Skip & Deactivate" to deactivate without sending feedback."
+msgstr ""
+
+#: feedback/feedback.php:89
+msgid "Kindly provide details about the difficulties you\'re facing."
+msgstr ""
+
+#: feedback/feedback.php:90
+msgid "If you don\'t mind, name the plugin you switched to."
+msgstr ""
+
+#: feedback/feedback.php:102
+msgid "Don\'t Deactivate"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:130
+msgid "🔥 Offer"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:132
+msgid "Get"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:132
+msgid "40% OFF"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:132
+msgid "Agency & Lifetime plans (Code:"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:132
+msgid "HYPER40"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:132
+msgid "or"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:132
+msgid "10% OFF"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:132
+msgid "other plans (Code:"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:132
+msgid "HYPER10"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:135
+msgid "Shop Now ➔"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:337
+msgid "Direct Support Email"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:339
+msgid "Need immediate help or prefer email? Reach us anytime at"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:339
+msgid "support@hyperpwa.com"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:494
+msgid "SSL Required"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:495
+msgid "HTTPS is strictly mandatory for PWA. Browsers will refuse to register Service Workers and block PWA installation on insecure HTTP connections."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:496
+msgid "HTTPS Active"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:497
+msgid "Your website is running securely over HTTPS. Service Workers and PWA installation are fully supported."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:509
+msgid "Manifest Required"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:510
+msgid "A valid Web App Manifest is mandatory. Browsers require it to identify your site as an installable app, display splash screens, and set app identity."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:511
+msgid "Manifest Valid"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:512
+msgid "Web App Manifest is properly configured with all required metadata for installation."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:524
+msgid "Service Worker Required"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:525
+msgid "The Service Worker is mandatory for PWA capabilities. It handles background caching, offline mode, and is required for browsers to show the install banner."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:526
+msgid "Service Worker Active"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:527
+msgid "Service Worker is active and handling background caching and offline functionality."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:539
+msgid "App Icon Required"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:540
+msgid "Mandatory for PWA installation. Browsers (Chrome, Edge, Safari) require at least a 192×192px and 512×512px icon before triggering the install prompt."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:541
+msgid "App Icon Configured"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:542
+msgid "High-resolution app icons are set up for desktop and mobile home screens."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:554
+msgid "Optional Feature"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:555
+msgid "This is optional and not mandatory for PWA installation. Your app will still install without it, but setting a custom offline page provides a better user experience when visitors lose connection."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:556
+msgid "Offline Page Configured"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:557
+msgid "A custom offline fallback page is configured to display when visitors are disconnected."
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:1033
+msgid "Passed"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:1043
+msgid "Optional"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:1046
+msgid "Required for Install"
+msgstr ""
+
+#: includes/admin/class-hypwa-settings.php:1049
+msgid "Mandatory"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:50
+msgid "Server and hosting configurations vary. If your server doesn\'t support WordPress rewrite rules or restricts writing files to the root directory, choose the alternative serving method. %s"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:82
+msgid "Enable or disable the custom PWA Install Button Gutenberg block in the WordPress block editor. %s"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:91
+msgid "Elementor Widget"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:92
+msgid "Enable or disable the custom PWA Install Button widget in the Elementor page builder."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:115
+msgid "Browser Console Logging"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:116
+msgid "Enable or disable console log messages printed to the browser developer console (e.g. Service Worker registration, cache exclusions, and PWA install prompt status messages)."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:124
+msgid "Link Hover Prefetching"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:126
+msgid "Instant Page Transitions: Pre-cache pages in the service worker cache the moment a user hovers over a link, reducing page transition latency to 0ms. %s"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:137
+msgid "Upgrade"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:140
+msgid "Instant Page Transitions: Pre-cache pages in the service worker cache the moment a user hovers over a link, reducing page transition latency to 0ms."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-advanced-settings.php:169
+msgid "Automatically upgrades HTTP resource requests to HTTPS and rewrites mixed content page assets. Note: This requires an SSL certificate (HTTPS) to be installed on your domain first. %s"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-app-basic-settings.php:49
+msgid "The main title of your app displayed on the user\'s home screen and splash screen."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-app-basic-settings.php:149
+msgid "iOS Limitation: iOS Safari does not support manifest orientation locking; the orientation is always controlled by the user\'s physical device position."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-app-basic-settings.php:181
+msgid "Sets the primary color used for the browser UI and installed app. Choose a color that matches your brand."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-app-basic-settings.php:193
+msgid "Sets the background color of the app\'s splash screen while it loads. Choose a color that matches your app\'s background."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:15
+msgid "Integrates Hyper PWA with OneSignal push notifications for reliable message delivery. %s"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:44
+msgid "WP Rocket"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:45
+msgid "Excludes PWA scripts from minification, JS deferment, and delay execution settings in WP Rocket."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:49
+msgid "LiteSpeed Cache"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:50
+msgid "Excludes PWA scripts and manifest from being optimized, minified, or combined by LiteSpeed Cache."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:54
+msgid "Autoptimize"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:55
+msgid "Prevents Autoptimize from aggregating and minifying PWA bootstrap scripts."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:59
+msgid "WP Fastest Cache"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:60
+msgid "Excludes PWA assets and requests from WP Fastest Cache optimization loops."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:64
+msgid "W3 Total Cache"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:65
+msgid "Excludes service worker scripts and manifest files from W3 Total Cache minification and CDN."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:69
+msgid "WP Super Cache"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-compatibility-settings.php:70
+msgid "Maintains service worker reliability by bypassing page cache storage for PWA request routes."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-core-feature-settings.php:985
+msgid "Message Icon"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-core-feature-settings.php:986
+msgid "Click to select a custom icon."
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-core-feature-settings.php:1106
+msgid "Copied!"
+msgstr ""
+
+#: includes/admin/settings/class-hypwa-core-feature-settings.php:1360
+msgid "Notice Preview"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:17
+msgid "PWA Install Button"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:48
+msgid "Type your button text here"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:58
+msgid "Style"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:104
+msgid "Vertical Padding (px)"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:113
+msgid "Horizontal Padding (px)"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:122
+msgid "Alignment"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:126
+msgid "Left"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:130
+msgid "Center"
+msgstr ""
+
+#: includes/customer/compatibility/class-hypwa-elementor-widget.php:134
+msgid "Right"
+msgstr ""

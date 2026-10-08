@@ -362,6 +362,18 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
                 HYPWA_Options::set( 'cf_push_website_uuid', $website_uuid );
                 HYPWA_Options::set( 'cf_push_connected', '1' );
 
+                if ( class_exists( 'HYPUX' ) ) {
+                    $hypux_options = get_option( 'hypux_options' );
+                    if ( is_array( $hypux_options ) ) {
+                        $hypux_options['api_key']      = $api_key;
+                        $hypux_options['website_id']   = $website_id;
+                        $hypux_options['website_uuid'] = $website_uuid;
+                        $hypux_options['enabled']      = true;
+                        $hypux_options['disconnected'] = false;
+                        update_option( 'hypux_options', $hypux_options );
+                    }
+                }
+
                 delete_transient( 'hypwa_push_stats_cache' );
 
                 if ( function_exists( 'hypwa_sync_static_files' ) ) {
@@ -415,6 +427,19 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
             HYPWA_Options::set( 'cf_push_website_id', '' );
             HYPWA_Options::set( 'cf_push_website_uuid', '' );
             HYPWA_Options::set( 'cf_push_connected', '0' );
+            HYPWA_Options::set( 'cf_push_status', '0' );
+
+            if ( class_exists( 'HYPUX' ) ) {
+                $hypux_options = get_option( 'hypux_options' );
+                if ( is_array( $hypux_options ) ) {
+                    $hypux_options['api_key']      = '';
+                    $hypux_options['website_id']   = '';
+                    $hypux_options['website_uuid'] = '';
+                    $hypux_options['enabled']      = false;
+                    $hypux_options['disconnected'] = true;
+                    update_option( 'hypux_options', $hypux_options );
+                }
+            }
 
             delete_transient( 'hypwa_push_stats_cache' );
 
