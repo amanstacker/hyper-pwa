@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/paypalme/amanstacker
 Requires PHP: 7.4
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 5.9
+Stable tag: 5.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -240,6 +240,9 @@ We actively monitor feedback and regularly release updates with bug fixes, impro
 
 == Upgrade Notice ==
 
+= 5.10 =
+Adds interactive tooltips & status badges to PWA Health Check, improved Select2 multi-select styles, and optimized push notification service worker handling.
+
 = 5.8 =
 Direct Support Email card added to Support tab, and fixed support ticket submission from plugin settings page.
 
@@ -253,6 +256,17 @@ Adds new Gutenberg Block, Shortcode, RTL support, and layout fixes. Updates comp
 Major update! Hyper PWA has been rebuilt from scratch with a redesigned interface, better performance, and powerful new PWA capabilities.
 
 == Changelog ==
+
+= 5.10 =
+
+* Added: Interactive information tooltips and status badges to PWA Health Check items.
+* Added: Admin AJAX endpoint for testing push notification connection status.
+* Improved: Select2 multi-select UI styling and clear-selection behavior across admin settings.
+* Improved: Push notification service worker payload handling (support for optional icon, image, and badge attributes).
+* Improved: Push notification client SDK subscription sync and prompt flow.
+* Improved: iOS Add-to-Home guide trigger logic and compatibility with PWA install buttons.
+* Improved: Cache fetch strategy handling in service worker for offline stability.
+* Updated: Translation strings and `.pot` catalog file.
 
 = 5.9 =
 

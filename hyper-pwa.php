@@ -2,7 +2,7 @@
 /*
 Plugin Name: Hyper PWA - Bringing Modern Progressive Web App Experiences
 Description: Turn your WordPress site into a fast, installable Progressive Web App. Give users a seamless offline experience and native mobile app feel.
-Version: 5.9
+Version: 5.10
 Text Domain: hyper-pwa
 Domain Path: /languages
 Author: amanstacker
@@ -13,7 +13,7 @@ License: GPLv2 or later
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'HYPWA_VERSION', '5.9' );
+define( 'HYPWA_VERSION', '5.10' );
 define( 'HYPWA_DIR_NAME_FILE', __FILE__  );
 define( 'HYPWA_DIR_NAME', dirname(  __FILE__  ) );
 define( 'HYPWA_DIR_URI', plugin_dir_url( __FILE__  ));
@@ -22,7 +22,6 @@ define( 'HYPWA_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define('HYPWA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define('HYPWA_PLUGIN_BASENAME', plugin_basename(__FILE__ ) );
 define('HYPWA_PUSH_API_BASE', 'https://hyperpushx.com');
-
 
 // Admin Settings
 require_once HYPWA_PLUGIN_DIR_PATH . 'feedback/feedback.php';
