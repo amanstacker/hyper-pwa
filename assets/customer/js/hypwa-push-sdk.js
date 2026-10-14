@@ -46,8 +46,25 @@
 
         setupBadgeClearListeners() {
             const clearBadge = () => {
+                // If Hyper PWA Premium In-App Inbox is active, let InboxController manage the badge count
+                if (window.HYPUXInbox && typeof window.HYPUXInbox.syncCount === 'function') {
+                    window.HYPUXInbox.syncCount();
+                    return;
+                }
                 if ('clearAppBadge' in navigator) {
                     navigator.clearAppBadge().catch(() => {});
+                }
+                if ('indexedDB' in window) {
+                    try {
+                        const req = indexedDB.open('hypwa_badge_db', 1);
+                        req.onsuccess = (e) => {
+                            const db = e.target.result;
+                            if (db.objectStoreNames.contains('badge')) {
+                                const tx = db.transaction('badge', 'readwrite');
+                                tx.objectStore('badge').put(0, 'count');
+                            }
+                        };
+                    } catch (e) {}
                 }
             };
             // Clear badge on initial focus/visibility when user opens app

@@ -11,6 +11,112 @@ return <<<JS
 
 /* Push Notifications */
 const backendUrl = '{$backend_url}';
+
+const HYPWA_BADGE_DB = 'hypwa_badge_db';
+const HYPWA_BADGE_STORE = 'badge';
+
+function hypwaGetBadgeDB() {
+    return new Promise(function(resolve, reject) {
+        if (!('indexedDB' in self)) {
+            return reject(new Error('IndexedDB not supported'));
+        }
+        var req = indexedDB.open(HYPWA_BADGE_DB, 1);
+        req.onupgradeneeded = function(e) {
+            var db = e.target.result;
+            if (!db.objectStoreNames.contains(HYPWA_BADGE_STORE)) {
+                db.createObjectStore(HYPWA_BADGE_STORE);
+            }
+        };
+        req.onsuccess = function(e) { resolve(e.target.result); };
+        req.onerror = function(e) { reject(e.target.error); };
+    });
+}
+
+function hypwaGetStoredBadge() {
+    return hypwaGetBadgeDB().then(function(db) {
+        return new Promise(function(resolve) {
+            var tx = db.transaction(HYPWA_BADGE_STORE, 'readonly');
+            var store = tx.objectStore(HYPWA_BADGE_STORE);
+            var req = store.get('count');
+            req.onsuccess = function() { resolve(typeof req.result === 'number' ? req.result : 0); };
+            req.onerror = function() { resolve(0); };
+        });
+    }).catch(function() { return 0; });
+}
+
+function hypwaSetStoredBadge(count) {
+    return hypwaGetBadgeDB().then(function(db) {
+        return new Promise(function(resolve) {
+            var tx = db.transaction(HYPWA_BADGE_STORE, 'readwrite');
+            var store = tx.objectStore(HYPWA_BADGE_STORE);
+            var req = store.put(count, 'count');
+            req.onsuccess = function() { resolve(count); };
+            req.onerror = function() { resolve(count); };
+        });
+    }).catch(function() { return count; });
+}
+
+function hypwaOnPushBadge(explicitCount) {
+    if (!('setAppBadge' in navigator)) {
+        return Promise.resolve();
+    }
+    // If In-App Inbox (Premium) is active, it manages badge count based on unread inbox messages
+    if (self.hypwaHasInbox) {
+        return Promise.resolve();
+    }
+    if (typeof explicitCount === 'number' && explicitCount > 0) {
+        return hypwaSetStoredBadge(explicitCount).then(function() {
+            return navigator.setAppBadge(explicitCount);
+        }).catch(function() {});
+    }
+
+    return Promise.all([
+        hypwaGetStoredBadge(),
+        (self.registration && typeof self.registration.getNotifications === 'function')
+            ? self.registration.getNotifications().then(function(n) { return (n && n.length) ? n.length : 0; }).catch(function() { return 0; })
+            : Promise.resolve(0)
+    ]).then(function(results) {
+        var stored = results[0] || 0;
+        var activeNotifs = results[1] || 0;
+        var newCount = Math.max(stored + 1, activeNotifs, 1);
+        return hypwaSetStoredBadge(newCount).then(function() {
+            return navigator.setAppBadge(newCount);
+        });
+    }).catch(function() {
+        return navigator.setAppBadge(1).catch(function() {});
+    });
+}
+
+function hypwaOnNotificationClickBadge() {
+    if (!('setAppBadge' in navigator)) {
+        return Promise.resolve();
+    }
+    if (self.hypwaHasInbox) {
+        return Promise.resolve();
+    }
+    if (self.registration && typeof self.registration.getNotifications === 'function') {
+        return self.registration.getNotifications().then(function(notifications) {
+            var count = (notifications && notifications.length) ? notifications.length : 0;
+            if (count > 0) {
+                return hypwaSetStoredBadge(count).then(function() {
+                    return navigator.setAppBadge(count);
+                });
+            } else {
+                return hypwaSetStoredBadge(0).then(function() {
+                    if ('clearAppBadge' in navigator) {
+                        return navigator.clearAppBadge();
+                    }
+                });
+            }
+        }).catch(function() {});
+    }
+    return hypwaSetStoredBadge(0).then(function() {
+        if ('clearAppBadge' in navigator) {
+            return navigator.clearAppBadge();
+        }
+    }).catch(function() {});
+}
+
 self.addEventListener('push', function(event) {
     if (!event.data) {
         console.warn('HyperPush SW: Push event received but has no data payload.');
@@ -21,8 +127,9 @@ self.addEventListener('push', function(event) {
         body: '',
         data: { url: '/' }
     };
+    let payload = null;
     try {
-        const payload = event.data.json();
+        payload = event.data.json();
         title = payload.title || 'Notification';
         options.body = payload.message || '';
         if (payload.icon) options.icon = payload.icon;
@@ -43,8 +150,10 @@ self.addEventListener('push', function(event) {
     let badgePromise = Promise.resolve();
 
     if ('setAppBadge' in navigator) {
-        const badgeCount = (payload && typeof payload.badge_count === 'number') ? payload.badge_count : 1;
-        badgePromise = navigator.setAppBadge(badgeCount).catch(function() {});
+        const explicitCount = (payload && typeof payload.badge_count === 'number' && payload.badge_count > 0) ? payload.badge_count : null;
+        badgePromise = showPromise.then(function() {
+            return hypwaOnPushBadge(explicitCount);
+        });
     }
 
     // Notify any open foreground app pages in real-time
@@ -70,9 +179,7 @@ self.addEventListener('notificationclick', function(event) {
     const action = event.action;
     notification.close();
 
-    if ('clearAppBadge' in navigator) {
-        navigator.clearAppBadge().catch(function() {});
-    }
+    const badgePromise = hypwaOnNotificationClickBadge();
 
     const data = notification.data || {};
     let targetUrl = data.url || '/';
@@ -111,8 +218,14 @@ self.addEventListener('notificationclick', function(event) {
         });
     }
     event.waitUntil(
-        Promise.all([urlPromise, clickTrackPromise])
+        Promise.all([urlPromise, clickTrackPromise, badgePromise])
     );
+});
+
+self.addEventListener('notificationclose', function(event) {
+    if ('setAppBadge' in navigator) {
+        event.waitUntil(hypwaOnNotificationClickBadge());
+    }
 });
 
 JS;
