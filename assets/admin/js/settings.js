@@ -1290,8 +1290,65 @@
         handleUrlHash();
         $(window).on('hashchange', handleUrlHash);
 
+        // ---- iOS & Safari Install Prompt Live Preview ----
+        var iosShareSvg = '<span class="hypwa-ios-preview-share-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="14" height="14" style="vertical-align: middle; fill: #007aff;"><path d="M30,13.5V17c0,0.55-0.45,1-1,1s-1-0.45-1-1v-4.5c0-0.55,0.45-1,1-1h11.5c0.55,0,1,0.45,1,1v16.5c0,0.55-0.45,1-1,1S39.5,29,39.5,28V13.5H30z"/><path d="M19,30H7.5c-0.55,0-1-0.45-1-1V12.5c0-0.55,0.45-1,1-1H19c0.55,0,1,0.45,1,1V17c0,0.55,0.45,1,1,1s1-0.45,1-1v-5.5c0-0.55-0.45-1-1-1H6.5c-0.55,0-1,0.45-1,1v18.5c0,0.55,0.45,1,1,1H19c0.55,0,1-0.45,1-1s-0.45-1-1-1V30z"/><path d="M24,4c-0.55,0-1,0.45-1,1v23c0,0.55,0.45,1,1,1s1-0.45,1-1V5C25,4.45,24.55,4,24,4z"/><path d="M17.35,11.35c0.39,0.39,1.02,0.39,1.41,0L24,6.17l5.23,5.18c0.39,0.39,1.02,0.39,1.41,0s0.39-1.02,0-1.41l-5.94-5.88c-0.39-0.39-1.02-0.39-1.41,0l-5.94,5.88C16.96,10.33,16.96,10.96,17.35,11.35z"/></svg></span>';
+
+        function updateIosPreview() {
+            var $card = $('#hypwa-ios-preview-prompt-card');
+            if ( !$card.length ) return;
+
+            var title = $('#hypwa_ios_prompt_title_input').val();
+            if ( !title ) {
+                var appName = $('input[name="hypwa_options[app_name]"]').val() || '';
+                title = appName ? ('Add ' + appName + ' to Home Screen') : 'Add to Home Screen';
+            }
+
+            var desc = $('#hypwa_ios_prompt_desc_input').val();
+            if ( !desc ) {
+                desc = 'Install this app on your device for offline support and quick access.';
+            }
+
+            var step1 = $('#hypwa_ios_prompt_step1_input').val();
+            if ( !step1 ) {
+                step1 = 'Tap the Share button in the browser toolbar.';
+            }
+
+            var step2 = $('#hypwa_ios_prompt_step2_input').val();
+            if ( !step2 ) {
+                step2 = 'Scroll down and select Add to Home Screen.';
+            }
+
+            var touchIcon = $('#hypwa_apple_touch_icon_upload').val();
+            var appIcon = $('input[name="hypwa_options[app_icon]"]').val();
+            var iconUrl = touchIcon || appIcon || '';
+
+            var $icon = $('#hypwa-ios-preview-icon');
+            if ( iconUrl ) {
+                $icon.attr('src', iconUrl).show();
+            } else {
+                $icon.hide();
+            }
+
+            $('#hypwa-ios-preview-title').text(title);
+            $('#hypwa-ios-preview-desc').text(desc);
+
+            var safeStep1 = $('<div>').text(step1).html();
+            if ( safeStep1.indexOf('[share_icon]') !== -1 ) {
+                safeStep1 = safeStep1.replace(/\[share_icon\]/g, iosShareSvg);
+            } else if ( safeStep1.indexOf('Share button') !== -1 ) {
+                safeStep1 = safeStep1.replace(/Share button/g, 'Share button ' + iosShareSvg);
+            }
+            $('#hypwa-ios-preview-step1').html(safeStep1);
+            $('#hypwa-ios-preview-step2').text(step2);
+        }
+
+        $(document).on('input change', '#hypwa_ios_prompt_title_input, #hypwa_ios_prompt_desc_input, #hypwa_ios_prompt_step1_input, #hypwa_ios_prompt_step2_input, #hypwa_apple_touch_icon_upload', function() {
+            updateIosPreview();
+        });
+
         // Initial render
         updateNoticePreview();
+        updateIosPreview();
     });
 
 })(jQuery);

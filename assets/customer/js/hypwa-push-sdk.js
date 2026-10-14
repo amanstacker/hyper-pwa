@@ -38,9 +38,28 @@
             // Retrieve permission status
             if (Notification.permission === 'granted') {
                 await this.syncSubscription();
+                this.setupBadgeClearListeners();
             } else if (Notification.permission === 'default') {
                 this.showOptInBanner();
             }
+        }
+
+        setupBadgeClearListeners() {
+            const clearBadge = () => {
+                if ('clearAppBadge' in navigator) {
+                    navigator.clearAppBadge().catch(() => {});
+                }
+            };
+            // Clear badge on initial focus/visibility when user opens app
+            if (document.visibilityState === 'visible') {
+                clearBadge();
+            }
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') {
+                    clearBadge();
+                }
+            });
+            window.addEventListener('focus', clearBadge);
         }
 
         showOptInBanner() {
@@ -181,6 +200,7 @@
                         const permission = await Notification.requestPermission();
                         if (permission === 'granted') {
                             await this.setupSubscription();
+                            this.setupBadgeClearListeners();
                         } else {
                             localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
                         }

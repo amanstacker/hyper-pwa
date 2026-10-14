@@ -94,3 +94,54 @@
     left: auto;
     right: 12px;
 }
+
+/* iOS & Safari Live Preview in RTL */
+.rtl .hypwa-ios-preview-prompt-card {
+    text-align: right;
+}
+.rtl .hypwa-ios-preview-close {
+    right: auto;
+    left: 6px;
+}
+.rtl .hypwa-ios-preview-header {
+    padding-right: 0;
+    padding-left: 14px;
+}
+.rtl .hypwa-ios-btn-action,
+.rtl .hypwa-ios-btn-vol-up,
+.rtl .hypwa-ios-btn-vol-down {
+    left: auto;
+    right: -3px;
+    border-radius: 0 3px 3px 0;
+}
+.rtl .hypwa-ios-btn-power {
+    right: auto;
+    left: -3px;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Select2 single-select arrow and clear button in RTL */
+.rtl .select2-container .select2-selection--single .select2-selection__rendered,
+.rtl .hypwa-input-col .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-left: 48px !important;
+    padding-right: 8px !important;
+}
+
+.rtl .select2-container .select2-selection--single .select2-selection__arrow,
+.rtl .hypwa-input-col .select2-container--default .select2-selection--single .select2-selection__arrow {
+    right: auto !important;
+    left: 8px !important;
+}
+
+.rtl .select2-container .select2-selection--single .select2-selection__clear,
+.rtl .hypwa-input-col .select2-container--default .select2-selection--single .select2-selection__clear {
+    margin-right: 0 !important;
+    margin-left: 28px !important;
+    float: left !important;
+}
+
+.rtl .hypwa-input-col .select2-container--default .select2-selection--multiple .select2-selection__clear {
+    margin-right: 0 !important;
+    margin-left: 8px !important;
+    float: left !important;
+}

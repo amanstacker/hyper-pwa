@@ -38,8 +38,30 @@ self.addEventListener('push', function(event) {
     } catch (err) {
         console.error('HyperPush SW: Failed to parse push notification payload:', err);
     }
+
+    const showPromise = self.registration.showNotification(title, options);
+    let badgePromise = Promise.resolve();
+
+    if ('setAppBadge' in navigator) {
+        const badgeCount = (payload && typeof payload.badge_count === 'number') ? payload.badge_count : 1;
+        badgePromise = navigator.setAppBadge(badgeCount).catch(function() {});
+    }
+
+    // Notify any open foreground app pages in real-time
+    const broadcastPromise = (self.clients && self.clients.matchAll) ? self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function(windowClients) {
+        for (let i = 0; i < windowClients.length; i++) {
+            try {
+                windowClients[i].postMessage({
+                    source: 'hypwa_sw',
+                    type: 'INBOX_UPDATED',
+                    payload: payload
+                });
+            } catch (e) {}
+        }
+    }).catch(function() {}) : Promise.resolve();
+
     event.waitUntil(
-        self.registration.showNotification(title, options)
+        Promise.all([showPromise, badgePromise, broadcastPromise])
     );
 });
 
@@ -47,6 +69,11 @@ self.addEventListener('notificationclick', function(event) {
     const notification = event.notification;
     const action = event.action;
     notification.close();
+
+    if ('clearAppBadge' in navigator) {
+        navigator.clearAppBadge().catch(function() {});
+    }
+
     const data = notification.data || {};
     let targetUrl = data.url || '/';
     if (action) {

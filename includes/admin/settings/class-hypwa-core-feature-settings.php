@@ -50,6 +50,8 @@ class HYPWA_Core_Feature_Settings {
                 	<?php
                 	if ( $accordion['id'] === 'hypwa_cf_connectivity_notices_icons' ) {
                 		self::render_connectivity_notices_custom();
+                	} elseif ( $accordion['id'] === 'hypwa_cf_ios_compatibility' ) {
+                		self::render_ios_compatibility_custom( $accordion );
                 	} else {
                 		foreach ( $accordion['fields'] as $key => $fields ) {
 
@@ -1358,6 +1360,243 @@ class HYPWA_Core_Feature_Settings {
 						</div>
 					</div>
 					<div class="hypwa-ib-preview-label"><?php esc_html_e( 'Notice Preview', 'hyper-pwa' ); ?></div>
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render iOS & Safari settings with interactive iPhone Live Preview.
+	 */
+	public static function render_ios_compatibility_custom( $accordion ) {
+		$app_name   = HYPWA_Options::get( 'app_name', get_bloginfo( 'name' ) );
+		$app_icon   = HYPWA_Options::get( 'app_icon' );
+		$touch_icon = HYPWA_Options::get( 'apple_touch_icon' );
+		$icon_url   = ! empty( $touch_icon ) ? $touch_icon : ( ! empty( $app_icon ) ? $app_icon : '' );
+
+		$title_text = HYPWA_Options::get( 'ios_prompt_title', 'Add ' . $app_name . ' to Home Screen' );
+		if ( empty( $title_text ) ) {
+			$title_text = 'Add ' . $app_name . ' to Home Screen';
+		}
+		$desc_text  = HYPWA_Options::get( 'ios_prompt_desc', 'Install this app on your device for offline support and quick access.' );
+		if ( empty( $desc_text ) ) {
+			$desc_text = 'Install this app on your device for offline support and quick access.';
+		}
+		$step1_text = HYPWA_Options::get( 'ios_prompt_step1', 'Tap the Share button in the browser toolbar.' );
+		if ( empty( $step1_text ) ) {
+			$step1_text = 'Tap the Share button in the browser toolbar.';
+		}
+		$step2_text = HYPWA_Options::get( 'ios_prompt_step2', 'Scroll down and select Add to Home Screen.' );
+		if ( empty( $step2_text ) ) {
+			$step2_text = 'Scroll down and select Add to Home Screen.';
+		}
+
+		$share_svg = '<span class="hypwa-ios-preview-share-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="14" height="14" style="vertical-align: middle; fill: #007aff;"><path d="M30,13.5V17c0,0.55-0.45,1-1,1s-1-0.45-1-1v-4.5c0-0.55,0.45-1,1-1h11.5c0.55,0,1,0.45,1,1v16.5c0,0.55-0.45,1-1,1S39.5,29,39.5,28V13.5H30z"/><path d="M19,30H7.5c-0.55,0-1-0.45-1-1V12.5c0-0.55,0.45-1,1-1H19c0.55,0,1,0.45,1,1V17c0,0.55,0.45,1,1,1s1-0.45,1-1v-5.5c0-0.55-0.45-1-1-1H6.5c-0.55,0-1,0.45-1,1v18.5c0,0.55,0.45,1,1,1H19c0.55,0,1-0.45,1-1s-0.45-1-1-1V30z"/><path d="M24,4c-0.55,0-1,0.45-1,1v23c0,0.55,0.45,1,1,1s1-0.45,1-1V5C25,4.45,24.55,4,24,4z"/><path d="M17.35,11.35c0.39,0.39,1.02,0.39,1.41,0L24,6.17l5.23,5.18c0.39,0.39,1.02,0.39,1.41,0s0.39-1.02,0-1.41l-5.94-5.88c-0.39-0.39-1.02-0.39-1.41,0l-5.94,5.88C16.96,10.33,16.96,10.96,17.35,11.35z"/></svg></span>';
+
+		$step1_rendered = esc_html( $step1_text );
+		if ( strpos( $step1_rendered, '[share_icon]' ) !== false ) {
+			$step1_rendered = str_replace( '[share_icon]', $share_svg, $step1_rendered );
+		} elseif ( strpos( $step1_rendered, 'Share button' ) !== false ) {
+			$step1_rendered = str_replace( 'Share button', 'Share button ' . $share_svg, $step1_rendered );
+		}
+
+		$allowed_step_tags = array_merge( wp_kses_allowed_html( 'post' ), [
+			'svg'  => [
+				'xmlns'   => true,
+				'viewbox' => true,
+				'width'   => true,
+				'height'  => true,
+				'style'   => true,
+				'fill'    => true,
+			],
+			'path' => [
+				'd'    => true,
+				'fill' => true,
+			],
+			'span' => [
+				'class' => true,
+				'style' => true,
+			],
+		] );
+		?>
+		<div class="hypwa-aiq-layout hypwa-ios-layout">
+			<!-- Col 1: Form Fields -->
+			<div class="hypwa-aiq-fields-col hypwa-ios-fields-col">
+				<?php
+				foreach ( $accordion['fields'] as $key => $fields ) {
+					// Skip first toggle
+					if ( $key === 0 ) continue;
+
+					// Section head
+					if ( $fields['type'] === 'section_head' ) {
+						?>
+						<div class="hypwa-section-head" style="--hypwa-sh-color: <?php echo esc_attr( $fields['color'] ); ?>; --hypwa-sh-bg: <?php echo esc_attr( $fields['bg'] ); ?>;">
+							<div class="hypwa-section-head-icon">
+								<span class="dashicons <?php echo esc_attr( $fields['icon'] ); ?>"></span>
+							</div>
+							<div>
+								<strong><?php echo esc_html( $fields['label'] ); ?></strong>
+								<span><?php echo esc_html( $fields['desc'] ); ?></span>
+							</div>
+						</div>
+						<?php
+						continue;
+					}
+
+					HYPWA_Settings::render( $fields['type'], [
+						'id'          => $fields['id'],
+						'class'       => isset( $fields['class'] ) ? $fields['class'] : '',
+						'name'        => $fields['name'],
+						'value'       => $fields['value'],
+						'placeholder' => '',
+						'label'       => $fields['label'],
+						'desc'        => $fields['desc'],
+						'options'     => isset( $fields['options'] ) ? $fields['options'] : [],
+					]);
+				}
+				?>
+			</div>
+
+			<!-- Col 2: Live iPhone Preview -->
+			<div class="hypwa-aiq-preview-col hypwa-ios-preview-col">
+				<div class="hypwa-aiq-preview-card hypwa-ios-preview-card">
+					<div class="hypwa-ios-iphone-wrapper">
+						<!-- Hardware Buttons -->
+						<div class="hypwa-ios-btn-action"></div>
+						<div class="hypwa-ios-btn-vol-up"></div>
+						<div class="hypwa-ios-btn-vol-down"></div>
+						<div class="hypwa-ios-btn-power"></div>
+
+						<!-- iPhone Chassis -->
+						<div class="hypwa-ios-phone-frame">
+							<!-- Inner Screen -->
+							<div class="hypwa-ios-screen">
+								<!-- iOS Status Bar with Dynamic Island -->
+								<div class="hypwa-ios-preview-statusbar">
+									<span class="hypwa-ios-preview-time">9:41</span>
+									<div class="hypwa-ios-dynamic-island">
+										<span class="hypwa-ios-di-lens"></span>
+										<span class="hypwa-ios-di-sensor"></span>
+									</div>
+									<div class="hypwa-ios-preview-status-icons">
+										<svg width="13" height="9" viewBox="0 0 17 12" fill="currentColor">
+											<rect x="0" y="9" width="3" height="3" rx="0.5"/>
+											<rect x="4.5" y="6" width="3" height="6" rx="0.5"/>
+											<rect x="9" y="3" width="3" height="9" rx="0.5"/>
+											<rect x="13.5" y="0" width="3" height="12" rx="0.5"/>
+										</svg>
+										<svg width="12" height="9" viewBox="0 0 16 12" fill="currentColor">
+											<path d="M8 3.6c2.4 0 4.6 1 6.1 2.6L16 4.3C14 2 11.2.6 8 .6 4.8.6 2 2 0 4.3l1.9 1.9C3.4 4.6 5.6 3.6 8 3.6zm0 4.3c1.3 0 2.5.5 3.3 1.4L13 7.6C11.7 6.3 9.9 5.5 8 5.5s-3.7.8-5 2.1l1.7 1.7c.8-.9 2-1.4 3.3-1.4zM8 12c.8 0 1.5-.7 1.5-1.5S8.8 9 8 9s-1.5.7-1.5 1.5S7.2 12 8 12z"/>
+										</svg>
+										<span class="hypwa-ios-battery-pill">
+											<span class="hypwa-ios-battery-fill"></span>
+											<span class="hypwa-ios-battery-nub"></span>
+										</span>
+									</div>
+								</div>
+
+								<!-- Safari Top Header / Address Bar -->
+								<div class="hypwa-ios-preview-safari-top">
+									<div class="hypwa-ios-preview-address-bar">
+										<span class="hypwa-ios-safari-aa">aA</span>
+										<div class="hypwa-ios-address-center">
+											<svg width="8" height="9" viewBox="0 0 10 12" fill="currentColor" class="hypwa-ios-lock-icon">
+												<path d="M3 4.5V3C3 1.9 3.9 1 5 1C6.1 1 7 1.9 7 3V4.5H8.5C9 4.5 9.5 5 9.5 5.5V10.5C9.5 11 9 11.5 8.5 11.5H1.5C1 11.5 0.5 11 0.5 10.5V5.5C0.5 5 1 4.5 1.5 4.5H3ZM4.2 4.5H5.8V3C5.8 2.5 5.4 2.2 5 2.2C4.6 2.2 4.2 2.5 4.2 3V4.5Z"/>
+											</svg>
+											<span class="hypwa-ios-preview-domain"><?php echo esc_html( wp_parse_url( home_url(), PHP_URL_HOST ) ); ?></span>
+										</div>
+										<span class="hypwa-ios-safari-reload">
+											<svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+												<path d="M10.5 6C10.5 8.5 8.5 10.5 6 10.5C3.5 10.5 1.5 8.5 1.5 6C1.5 3.8 3.1 1.9 5.2 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+												<path d="M6 3.5L5.5 1.5L7.5 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+										</span>
+									</div>
+								</div>
+
+								<!-- Web Page Content Simulation -->
+								<div class="hypwa-ios-preview-page-body">
+									<div class="hypwa-ios-dummy-nav">
+										<div class="hypwa-ios-dummy-logo"></div>
+										<div class="hypwa-ios-dummy-lines">
+											<span></span>
+											<span></span>
+										</div>
+									</div>
+									<div class="hypwa-ios-dummy-hero">
+										<div class="hypwa-cia-phone-placeholder-line hypwa-cia-w-70"></div>
+										<div class="hypwa-cia-phone-placeholder-line hypwa-cia-w-50"></div>
+									</div>
+									<div class="hypwa-ios-dummy-card">
+										<div class="hypwa-ios-dummy-img"></div>
+										<div class="hypwa-cia-phone-placeholder-line hypwa-cia-w-70" style="margin-top: 8px;"></div>
+									</div>
+								</div>
+
+								<!-- iOS Install Prompt Bottom Card -->
+								<div class="hypwa-ios-preview-prompt-wrap">
+									<div id="hypwa-ios-preview-prompt-card" class="hypwa-ios-preview-prompt-card">
+										<div class="hypwa-ios-sheet-handle"></div>
+										<button type="button" class="hypwa-ios-preview-close" aria-label="Dismiss">&times;</button>
+										<div class="hypwa-ios-preview-header">
+											<img id="hypwa-ios-preview-icon"
+												 class="hypwa-ios-preview-app-icon"
+												 src="<?php echo esc_url( $icon_url ); ?>"
+												 alt=""
+												 style="<?php echo empty( $icon_url ) ? 'display: none;' : ''; ?>"
+											/>
+											<div class="hypwa-ios-preview-title-block">
+												<h4 id="hypwa-ios-preview-title"><?php echo esc_html( $title_text ); ?></h4>
+												<p id="hypwa-ios-preview-desc"><?php echo esc_html( $desc_text ); ?></p>
+											</div>
+										</div>
+										<div class="hypwa-ios-preview-body">
+											<div class="hypwa-ios-preview-step">
+												<span class="hypwa-ios-preview-step-number">1</span>
+												<div id="hypwa-ios-preview-step1" class="hypwa-ios-preview-step-text">
+													<?php echo wp_kses( $step1_rendered, $allowed_step_tags ); ?>
+												</div>
+											</div>
+											<div class="hypwa-ios-preview-step">
+												<span class="hypwa-ios-preview-step-number">2</span>
+												<div id="hypwa-ios-preview-step2" class="hypwa-ios-preview-step-text">
+													<?php echo esc_html( $step2_text ); ?>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Pointer Arrow down to Safari Share button -->
+									<div class="hypwa-ios-preview-pointer-arrow"></div>
+								</div>
+
+								<!-- Safari Bottom Toolbar -->
+								<div class="hypwa-ios-preview-safari-bottom">
+									<span class="hypwa-ios-safari-icon">
+										<svg width="10" height="13" viewBox="0 0 11 15" fill="none"><path d="M9 1.5L2.5 7.5L9 13.5" stroke="#007aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+									</span>
+									<span class="hypwa-ios-safari-icon" style="opacity: 0.35;">
+										<svg width="10" height="13" viewBox="0 0 11 15" fill="none"><path d="M2 1.5L8.5 7.5L2 13.5" stroke="#007aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+									</span>
+									<span class="hypwa-ios-safari-icon hypwa-ios-safari-share-target">
+										<svg width="13" height="15" viewBox="0 0 15 17" fill="none"><path d="M7.5 1V11M7.5 1L3.5 5M7.5 1L11.5 5" stroke="#007aff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 6.5V14C1 15.1 1.9 16 3 16H12C13.1 16 14 15.1 14 14V6.5" stroke="#007aff" stroke-width="1.8" stroke-linecap="round"/></svg>
+									</span>
+									<span class="hypwa-ios-safari-icon">
+										<svg width="14" height="12" viewBox="0 0 16 14" fill="none"><path d="M1 1.5C3 1.5 6 1.8 8 3.5C10 1.8 13 1.5 15 1.5V11.5C13 11.5 10 11.8 8 13.5C6 11.8 3 11.5 1 11.5V1.5Z" stroke="#007aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 3.5V13.5" stroke="#007aff" stroke-width="1.5"/></svg>
+									</span>
+									<span class="hypwa-ios-safari-icon">
+										<svg width="13" height="13" viewBox="0 0 15 15" fill="none"><rect x="3.5" y="1" width="10.5" height="10.5" rx="2" stroke="#007aff" stroke-width="1.5"/><rect x="1" y="3.5" width="10.5" height="10.5" rx="2" fill="#fff" stroke="#007aff" stroke-width="1.5"/></svg>
+									</span>
+								</div>
+
+								<!-- iOS Home Indicator -->
+								<div class="hypwa-ios-home-indicator-wrap">
+									<div class="hypwa-ios-home-indicator"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="hypwa-ib-preview-label"><?php esc_html_e( 'iOS Safari Live Preview', 'hyper-pwa' ); ?></div>
 				</div>
 			</div>
 		</div>
