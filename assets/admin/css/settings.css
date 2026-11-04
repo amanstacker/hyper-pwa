@@ -232,6 +232,9 @@
 .hypwa-label-col { width: 60%; padding-right: 15px; }
 .hypwa-label-col label { display: block; font-weight: 500; font-size: 15px; color: #1e293b; margin-bottom: 3px; }
 .hypwa-field-desc { display: block; font-size: 13px; color: #64748b; line-height: 1.5; }
+.hypwa-ios-notice { display: block; color: #d97706; font-weight: 600; font-size: 12.5px; margin-top: 4px; line-height: 1.4; }
+.hypwa-ios-notice-link { color: #2563eb; text-decoration: underline; font-weight: 600; }
+.hypwa-ios-notice-link:hover { color: #1d4ed8; text-decoration: none; }
 
 .hypwa-input-col { width: 40%; }
 .hypwa-controls-vertical-list { display: flex; flex-direction: column; gap: 8px; padding-top: 2px; }
@@ -310,6 +313,159 @@ input:checked + .hypwa-option-slider { background-color: #2563eb !important; }
 .hypwa-side-links-list a:hover { color: #2563eb; }
 .hypwa-side-links-list .dashicons { font-size:14px; width:14px; height:14px; color:#94a3b8; vertical-align: middle; }
 .hypwa-side-links-list a span .dashicons { margin-right: 8px; }
+
+/* PWA Health Status Tooltip Styles */
+.hypwa-health-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.hypwa-health-row-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    padding: 10px 0;
+    color: #475569;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.hypwa-health-row-link:hover {
+    color: #2563eb;
+}
+
+.hypwa-health-status-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    vertical-align: middle;
+    outline: none;
+    transition: background-color 0.15s ease;
+}
+
+.hypwa-health-status-icon.hypwa-has-issue {
+    cursor: help;
+}
+
+.hypwa-health-status-icon.hypwa-has-issue:hover {
+    background-color: rgba(220, 38, 38, 0.08);
+}
+
+.hypwa-health-status-icon.hypwa-is-healthy:hover {
+    background-color: rgba(22, 163, 74, 0.08);
+}
+
+.hypwa-health-status-icon .dashicons {
+    margin-right: 0 !important;
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+    transition: transform 0.15s ease;
+}
+
+.hypwa-health-status-icon:hover .dashicons {
+    transform: scale(1.15);
+}
+
+/* Tooltip Popup Box */
+.hypwa-health-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: -8px;
+    width: 250px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35), 0 8px 10px -6px rgba(0, 0, 0, 0.25);
+    border: 1px solid #334155;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.18s ease;
+    text-align: left;
+    white-space: normal;
+    box-sizing: border-box;
+}
+
+/* Arrow Tip */
+.hypwa-health-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 12px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #0f172a transparent transparent transparent;
+}
+
+.hypwa-health-status-icon:hover .hypwa-health-tooltip {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.hypwa-health-tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.hypwa-health-tooltip-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
+}
+
+.hypwa-health-tooltip-badge.hypwa-badge-mandatory {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.hypwa-health-tooltip-badge.hypwa-badge-optional {
+    background-color: #0284c7;
+    color: #ffffff;
+}
+
+.hypwa-health-tooltip-badge.hypwa-badge-passed {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.hypwa-health-tooltip-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+.hypwa-health-tooltip-desc {
+    display: block;
+    font-size: 11px;
+    color: #cbd5e1;
+    line-height: 1.45;
+    font-weight: 400;
+}
 
 /* Footer Container - Clean white bar matching main canvas background */
 .hypwa-bottom-bar {
@@ -1564,6 +1720,520 @@ input:checked + .hypwa-option-slider { background-color: #2563eb !important; }
     font-family: inherit;
 }
 
+/* iOS & Safari Live Preview - Realistic iPhone Device Simulation */
+.hypwa-ios-layout {
+    gap: 36px;
+}
+
+.hypwa-ios-iphone-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 270px;
+    margin: 0 auto;
+}
+
+/* Hardware Buttons on Chassis */
+.hypwa-ios-btn-action {
+    position: absolute;
+    top: 64px;
+    left: -3px;
+    width: 4px;
+    height: 18px;
+    background: #373e4b;
+    border-radius: 3px 0 0 3px;
+    z-index: 1;
+}
+
+.hypwa-ios-btn-vol-up {
+    position: absolute;
+    top: 94px;
+    left: -3px;
+    width: 4px;
+    height: 32px;
+    background: #373e4b;
+    border-radius: 3px 0 0 3px;
+    z-index: 1;
+}
+
+.hypwa-ios-btn-vol-down {
+    position: absolute;
+    top: 134px;
+    left: -3px;
+    width: 4px;
+    height: 32px;
+    background: #373e4b;
+    border-radius: 3px 0 0 3px;
+    z-index: 1;
+}
+
+.hypwa-ios-btn-power {
+    position: absolute;
+    top: 98px;
+    right: -3px;
+    width: 4px;
+    height: 44px;
+    background: #373e4b;
+    border-radius: 0 3px 3px 0;
+    z-index: 1;
+}
+
+/* Outer iPhone Casing */
+.hypwa-ios-phone-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 18.8;
+    background: #181b20;
+    border: 3.5px solid #373e4b;
+    border-radius: 42px;
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.4), 0 0 0 1px #1e232c, inset 0 0 0 2px #0f1217;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+/* Inner Screen Container */
+.hypwa-ios-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* iOS Status Bar with Dynamic Island */
+.hypwa-ios-preview-statusbar {
+    height: 32px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    color: #000000;
+    background: #ffffff;
+    z-index: 10;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+    letter-spacing: -0.2px;
+}
+
+.hypwa-ios-preview-time {
+    font-weight: 700;
+    font-size: 10.5px;
+    min-width: 28px;
+}
+
+.hypwa-ios-dynamic-island {
+    width: 66px;
+    height: 19px;
+    background: #000000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 7px;
+    gap: 4px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.hypwa-ios-di-lens {
+    width: 6.5px;
+    height: 6.5px;
+    border-radius: 50%;
+    background: #0c101c;
+    border: 1px solid #1a2233;
+    display: inline-block;
+}
+
+.hypwa-ios-di-sensor {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #141724;
+    display: inline-block;
+}
+
+.hypwa-ios-preview-status-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #000000;
+    min-width: 34px;
+    justify-content: flex-end;
+}
+
+.hypwa-ios-battery-pill {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    width: 17px;
+    height: 9px;
+    border: 1.5px solid currentColor;
+    border-radius: 3px;
+    padding: 1px;
+    box-sizing: border-box;
+    margin-left: 1px;
+}
+
+.hypwa-ios-battery-fill {
+    width: 75%;
+    height: 100%;
+    background: currentColor;
+    border-radius: 1px;
+}
+
+.hypwa-ios-battery-nub {
+    position: absolute;
+    right: -3px;
+    top: 2px;
+    width: 1.5px;
+    height: 3px;
+    background: currentColor;
+    border-radius: 0 1px 1px 0;
+}
+
+/* Safari Top Header / Modern Address Bar */
+.hypwa-ios-preview-safari-top {
+    background: rgba(248, 248, 248, 0.95);
+    border-bottom: 1px solid #e5e5ea;
+    padding: 4px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+.hypwa-ios-preview-address-bar {
+    background: #e9e9ee;
+    border-radius: 8px;
+    padding: 3px 8px;
+    font-size: 10px;
+    color: #3c3c43;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+.hypwa-ios-safari-aa {
+    font-weight: 600;
+    font-size: 9px;
+    color: #3c3c43;
+    letter-spacing: -0.3px;
+    padding: 0 2px;
+}
+
+.hypwa-ios-address-center {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.hypwa-ios-lock-icon {
+    color: #3c3c43;
+    flex-shrink: 0;
+}
+
+.hypwa-ios-preview-domain {
+    font-weight: 500;
+    font-size: 9.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000000;
+}
+
+.hypwa-ios-safari-reload {
+    color: #3c3c43;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2px;
+}
+
+/* Web Page Content Simulation */
+.hypwa-ios-preview-page-body {
+    flex: 1;
+    padding: 12px;
+    background: #f2f2f7;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.hypwa-ios-dummy-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.hypwa-ios-dummy-logo {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    background: #2563eb;
+}
+
+.hypwa-ios-dummy-lines {
+    display: flex;
+    gap: 4px;
+}
+
+.hypwa-ios-dummy-lines span {
+    width: 22px;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+}
+
+.hypwa-ios-dummy-hero {
+    background: #ffffff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hypwa-ios-dummy-card {
+    flex: 1;
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.hypwa-ios-dummy-img {
+    width: 100%;
+    height: 40px;
+    background: #e2e8f0;
+    border-radius: 5px;
+}
+
+/* iOS Install Prompt Bottom Sheet Card */
+.hypwa-ios-preview-prompt-wrap {
+    position: absolute;
+    bottom: 50px;
+    left: 8px;
+    right: 8px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hypwa-ios-preview-prompt-card {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    padding: 7px 10px 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    text-align: left;
+}
+
+.hypwa-ios-sheet-handle {
+    width: 28px;
+    height: 3.5px;
+    background: #c7c7cc;
+    border-radius: 2px;
+    margin: 0 auto 6px;
+}
+
+.hypwa-ios-preview-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    border: none;
+    background: #e5e5ea;
+    color: #8e8e93;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    line-height: 14px;
+    font-size: 13px;
+    text-align: center;
+    cursor: default;
+    padding: 0;
+}
+
+.hypwa-ios-preview-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    padding-right: 14px;
+}
+
+.hypwa-ios-preview-app-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.hypwa-ios-preview-title-block {
+    min-width: 0;
+    flex: 1;
+}
+
+#hypwa-ios-preview-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 2px 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+#hypwa-ios-preview-desc {
+    font-size: 9.5px;
+    color: #636366;
+    margin: 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+.hypwa-ios-preview-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(60, 60, 67, 0.12);
+}
+
+.hypwa-ios-preview-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 9.5px;
+    color: #1c1c1e;
+    line-height: 1.35;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+.hypwa-ios-preview-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #007aff;
+    color: #ffffff;
+    font-size: 8.5px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.hypwa-ios-preview-step-text {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+}
+
+.hypwa-ios-preview-share-icon {
+    display: inline-flex;
+    vertical-align: middle;
+    margin: 0 1px;
+}
+
+.hypwa-ios-preview-pointer-arrow {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 8px solid #007aff;
+    margin-top: -1px;
+    filter: drop-shadow(0 2px 4px rgba(0, 122, 255, 0.35));
+    animation: hypwaBounceDown 1.5s infinite ease-in-out;
+}
+
+@keyframes hypwaBounceDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(4px);
+    }
+}
+
+/* Safari Bottom Navigation Bar */
+.hypwa-ios-preview-safari-bottom {
+    height: 38px;
+    background: rgba(248, 248, 248, 0.95);
+    border-top: 1px solid #e5e5ea;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 8px;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.hypwa-ios-safari-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    color: #007aff;
+}
+
+.hypwa-ios-safari-share-target {
+    padding: 4px 6px;
+    border-radius: 6px;
+    background: rgba(0, 122, 255, 0.14);
+    box-shadow: 0 0 0 1px rgba(0, 122, 255, 0.25);
+}
+
+/* iOS Home Indicator Bar */
+.hypwa-ios-home-indicator-wrap {
+    background: rgba(248, 248, 248, 0.95);
+    padding-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.hypwa-ios-home-indicator {
+    width: 90px;
+    height: 3.5px;
+    background: #000000;
+    border-radius: 3px;
+    opacity: 0.85;
+}
+
 .hypwa-upgrade-badge {
     display: inline-block;
     background: #e0f2fe;
@@ -1689,4 +2359,160 @@ input:checked + .hypwa-option-slider { background-color: #2563eb !important; }
 
 .hypwa-support-direct-email-card .hypwa-support-card-email-link:hover {
     color: #1d4ed8;
+}
+
+/* =====================================================
+   Hyper PWA Modern Select2 Control Styling
+   ===================================================== */
+.hypwa-input-col .select2-container {
+    width: 100% !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--single,
+.hypwa-input-col .select2-container--default .select2-selection--multiple {
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    min-height: 36px !important;
+    padding: 2px 6px !important;
+    font-size: 13px !important;
+    color: #1e293b !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+.hypwa-input-col .select2-container--default.select2-container--focus .select2-selection--single,
+.hypwa-input-col .select2-container--default.select2-container--focus .select2-selection--multiple,
+.hypwa-input-col .select2-container--default.select2-container--open .select2-selection--single,
+.hypwa-input-col .select2-container--default.select2-container--open .select2-selection--multiple {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 1px #2563eb !important;
+    outline: none !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #1e293b !important;
+    font-size: 13px !important;
+    line-height: 30px !important;
+    padding-left: 6px !important;
+    padding-right: 48px !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100% !important;
+    top: 0 !important;
+    right: 8px !important;
+    width: 20px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 1px 2px !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    display: inline-flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background-color: #eff6ff !important;
+    border: 1px solid #bfdbfe !important;
+    border-radius: 5px !important;
+    color: #1d4ed8 !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 2px 8px !important;
+    margin: 2px 2px 2px 0 !important;
+    line-height: 1.4 !important;
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.05) !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #60a5fa !important;
+    border: none !important;
+    background: transparent !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    transition: color 0.15s ease !important;
+    order: 2 !important;
+    float: none !important;
+    position: static !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: #ef4444 !important;
+    background: transparent !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--single .select2-selection__clear {
+    margin-right: 28px !important;
+    color: #94a3b8 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection--multiple .select2-selection__clear {
+    margin-right: 8px !important;
+    color: #94a3b8 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-selection__clear:hover {
+    color: #ef4444 !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-search--inline {
+    margin: 2px 0 !important;
+    flex-grow: 1 !important;
+}
+
+.hypwa-input-col .select2-container--default .select2-search--inline .select2-search__field {
+    font-size: 13px !important;
+    font-family: inherit !important;
+    color: #1e293b !important;
+    margin: 0 !important;
+    height: 24px !important;
+    line-height: 24px !important;
+}
+
+.hypwa-select2-dropdown {
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+    z-index: 99999 !important;
+    overflow: hidden !important;
+    margin-top: 4px !important;
+}
+
+.hypwa-select2-dropdown .select2-results__option {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    color: #334155 !important;
+}
+
+.hypwa-select2-dropdown .select2-results__option--highlighted[aria-selected],
+.hypwa-select2-dropdown .select2-results__option--highlighted[aria-selected="true"] {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+.hypwa-select2-dropdown .select2-results__option[aria-selected="true"] {
+    background-color: #eff6ff !important;
+    color: #1d4ed8 !important;
+    font-weight: 500 !important;
 }

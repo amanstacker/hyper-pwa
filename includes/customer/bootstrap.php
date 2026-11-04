@@ -25,11 +25,14 @@ $manifest_url = hypwa_manifest_url();
 <?php endif; ?>
 
 <!-- iOS / Safari Compatibility Meta Tags -->
-<?php if ( '1' === HYPWA_Options::get( 'ios_prompt_status', '0' ) ) : ?>
+<?php
+$is_standalone_launch = in_array( HYPWA_Options::get( 'launch_mode', 'standalone' ), [ 'standalone', 'full-screen', 'minimal-ui' ], true );
+if ( $is_standalone_launch ) : ?>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="<?php echo esc_attr( HYPWA_Options::get( 'apple_status_bar_style', 'default' ) ); ?>">
-<meta name="apple-mobile-web-app-title" content="<?php echo esc_attr( HYPWA_Options::get( 'app_short_name' ) ); ?>">
+<?php endif; ?>
+<meta name="apple-mobile-web-app-title" content="<?php echo esc_attr( HYPWA_Options::get( 'app_short_name', get_bloginfo( 'name' ) ) ); ?>">
 
 <?php
 $apple_icon = HYPWA_Options::get( 'apple_touch_icon' );
@@ -61,7 +64,7 @@ if ( '1' === HYPWA_Options::get( 'ios_splash_screens_enabled', '0' ) ) {
 		<?php
 	}
 }
-endif; ?>
+?>
 
 <meta name="theme-color" content="<?php echo esc_attr( HYPWA_Options::get( 'theme_color', '#2563eb' ) ); ?>">
 <?php
@@ -113,7 +116,7 @@ function hypwa_enqueue_service_worker() {
 
 	wp_enqueue_script( 'hypwa-register-sw' );
 
-	if ( '1' === HYPWA_Options::get( 'cf_push_status' ) && '1' === HYPWA_Options::get( 'cf_push_connected' ) && ! class_exists( 'HyperPushX' ) ) {
+	if ( '1' === HYPWA_Options::get( 'cf_push_status' ) && '1' === HYPWA_Options::get( 'cf_push_connected' ) && ! class_exists( 'HYPUX' ) ) {
 		wp_register_script(
 			'hypwa-push-sdk',
 			HYPWA_PLUGIN_URL . "assets/customer/js/hypwa-push-sdk{$min}.js",
@@ -262,7 +265,7 @@ function hypwa_send_post_publish_push( $new_status, $old_status, $post ) {
 	}
 
 	// Only send if push is enabled, connected, and dedicated plugin is not active
-	if ( '1' !== HYPWA_Options::get( 'cf_push_status', '0' ) || '1' !== HYPWA_Options::get( 'cf_push_connected', '0' ) || class_exists( 'HyperPushX' ) ) {
+	if ( '1' !== HYPWA_Options::get( 'cf_push_status', '0' ) || '1' !== HYPWA_Options::get( 'cf_push_connected', '0' ) || class_exists( 'HYPUX' ) ) {
 		return;
 	}
 

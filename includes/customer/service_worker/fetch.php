@@ -19,7 +19,8 @@ self.addEventListener( 'fetch', ( event ) => {
 	}
 
 	// Skip external resources unless enabled.
-	if ( ! config.cache_external && new URL( event.request.url ).origin !== self.location.origin ) {
+	const isCacheExternal = ( config.cache_external === '1' || config.cache_external === 1 || config.cache_external === true );
+	if ( ! isCacheExternal && new URL( event.request.url ).origin !== self.location.origin ) {
 		return;
 	}
 
@@ -29,15 +30,14 @@ self.addEventListener( 'fetch', ( event ) => {
 	}
 
 	// Skip excluded URLs.
-	if ( config.exclude_from_caching_status && ! hypwaCanCacheRequest( event.request.url )) {
-		if ( config.browser_console_logs !== '0' ) {
-			console.log( 'Hyper PWA: Current request is excluded from cache.' );
-		}
+	const isExcludeStatus = ( config.exclude_from_caching_status === '1' || config.exclude_from_caching_status === 1 || config.exclude_from_caching_status === true );
+	if ( isExcludeStatus && ! hypwaCanCacheRequest( event.request.url ) ) {
 		return;
 	}
 
 	// Runtime caching disabled / Caching Strategies is turned off.
-	if ( ! config.caching_status ) {
+	const isCachingEnabled = ( config.caching_status === '1' || config.caching_status === 1 || config.caching_status === true );
+	if ( ! isCachingEnabled ) {
 		const isSameOrigin = new URL( event.request.url ).origin === self.location.origin;
 		const acceptHeader = event.request.headers.get( 'Accept' ) || '';
 		const isHtml = acceptHeader.includes( 'text/html' ) || event.request.mode === 'navigate';

@@ -322,7 +322,7 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
                 wp_send_json_error( [ 'message' => esc_html__( 'API Key is required.', 'hyper-pwa' ) ] );
             }
 
-            $url = HYPWA_PUSH_API_BASE . '/api/v1/websites';
+            $url = rtrim( HYPWA_PUSH_API_BASE, '/' ) . '/api/v1/websites';
             $payload = [
                 'name'   => get_bloginfo( 'name' ),
                 'domain' => home_url(),
@@ -362,6 +362,18 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
                 HYPWA_Options::set( 'cf_push_website_uuid', $website_uuid );
                 HYPWA_Options::set( 'cf_push_connected', '1' );
 
+                if ( class_exists( 'HYPUX' ) ) {
+                    $hypux_options = get_option( 'hypux_options' );
+                    if ( is_array( $hypux_options ) ) {
+                        $hypux_options['api_key']      = $api_key;
+                        $hypux_options['website_id']   = $website_id;
+                        $hypux_options['website_uuid'] = $website_uuid;
+                        $hypux_options['enabled']      = true;
+                        $hypux_options['disconnected'] = false;
+                        update_option( 'hypux_options', $hypux_options );
+                    }
+                }
+
                 delete_transient( 'hypwa_push_stats_cache' );
 
                 if ( function_exists( 'hypwa_sync_static_files' ) ) {
@@ -373,7 +385,7 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
                     'website_id' => $website_id,
                 ] );
             } else {
-                $err_msg = isset( $data['message'] ) ? $data['message'] : esc_html__( 'Invalid API Key or server error.', 'hyper-pwa' );
+                $err_msg = isset( $data['message'] ) ? $data['message'] : ( isset( $data['error'] ) ? $data['error'] : esc_html__( 'Invalid API Key or server error.', 'hyper-pwa' ) );
                 wp_send_json_error( [ 'message' => $err_msg ] );
             }
         }
@@ -415,6 +427,19 @@ if ( ! class_exists( 'HYPWA_Settings_Ajax' ) ) {
             HYPWA_Options::set( 'cf_push_website_id', '' );
             HYPWA_Options::set( 'cf_push_website_uuid', '' );
             HYPWA_Options::set( 'cf_push_connected', '0' );
+            HYPWA_Options::set( 'cf_push_status', '0' );
+
+            if ( class_exists( 'HYPUX' ) ) {
+                $hypux_options = get_option( 'hypux_options' );
+                if ( is_array( $hypux_options ) ) {
+                    $hypux_options['api_key']      = '';
+                    $hypux_options['website_id']   = '';
+                    $hypux_options['website_uuid'] = '';
+                    $hypux_options['enabled']      = false;
+                    $hypux_options['disconnected'] = true;
+                    update_option( 'hypux_options', $hypux_options );
+                }
+            }
 
             delete_transient( 'hypwa_push_stats_cache' );
 

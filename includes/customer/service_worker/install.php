@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 return <<<'JS'
 
 self.addEventListener('install', function(event) {
+	self.skipWaiting();
 
 	// Pre-caching disabled or no URLs to cache.
 	if (

@@ -26,7 +26,7 @@
         constructor() {
             this.siteId = siteId;
             this.backendUrl = backendUrl;
-            this.subscriberId = localStorage.getItem(STORAGE_KEY_SUB_ID);
+            this.subscriberId = localStorage.getItem(STORAGE_KEY_SUB_ID) || localStorage.getItem('hypux_subscriber_id');
             this.init();
         }
 
@@ -37,10 +37,46 @@
 
             // Retrieve permission status
             if (Notification.permission === 'granted') {
-                await this.setupSubscription();
+                await this.syncSubscription();
+                this.setupBadgeClearListeners();
             } else if (Notification.permission === 'default') {
                 this.showOptInBanner();
             }
+        }
+
+        setupBadgeClearListeners() {
+            const clearBadge = () => {
+                // If Hyper PWA Premium In-App Inbox is active, let InboxController manage the badge count
+                if (window.HYPUXInbox && typeof window.HYPUXInbox.syncCount === 'function') {
+                    window.HYPUXInbox.syncCount();
+                    return;
+                }
+                if ('clearAppBadge' in navigator) {
+                    navigator.clearAppBadge().catch(() => {});
+                }
+                if ('indexedDB' in window) {
+                    try {
+                        const req = indexedDB.open('hypwa_badge_db', 1);
+                        req.onsuccess = (e) => {
+                            const db = e.target.result;
+                            if (db.objectStoreNames.contains('badge')) {
+                                const tx = db.transaction('badge', 'readwrite');
+                                tx.objectStore('badge').put(0, 'count');
+                            }
+                        };
+                    } catch (e) {}
+                }
+            };
+            // Clear badge on initial focus/visibility when user opens app
+            if (document.visibilityState === 'visible') {
+                clearBadge();
+            }
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') {
+                    clearBadge();
+                }
+            });
+            window.addEventListener('focus', clearBadge);
         }
 
         showOptInBanner() {
@@ -181,6 +217,7 @@
                         const permission = await Notification.requestPermission();
                         if (permission === 'granted') {
                             await this.setupSubscription();
+                            this.setupBadgeClearListeners();
                         } else {
                             localStorage.setItem('hypwa_push_prompt_dismissed', 'true');
                         }
@@ -188,6 +225,32 @@
                         console.error('Hyper PWA Push: Permission request failed:', err);
                     }
                 });
+            }
+        }
+
+        async syncSubscription() {
+            try {
+                const registration = await navigator.serviceWorker.ready;
+                if (!registration || !registration.pushManager) {
+                    return;
+                }
+
+                const existingSub = await registration.pushManager.getSubscription();
+
+                if (!existingSub) {
+                    // Permission is granted, but active push subscription is missing.
+                    // Silently subscribe in the background without prompting.
+                    await this.setupSubscription();
+                    return;
+                }
+
+                // If subscriberId is missing or endpoint changed, sync to backend
+                const storedEndpoint = localStorage.getItem('hypwa_push_sub_endpoint');
+                if (!this.subscriberId || storedEndpoint !== existingSub.endpoint) {
+                    await this.uploadSubscription(existingSub);
+                }
+            } catch (err) {
+                console.warn('Hyper PWA Push: Subscription sync notice:', err);
             }
         }
 
@@ -214,6 +277,16 @@
                     userVisibleOnly: true,
                     applicationServerKey: convertedVapidKey
                 });
+
+                await this.uploadSubscription(subscription);
+            } catch (err) {
+                console.error('Hyper PWA Push: Subscription failed:', err);
+            }
+        }
+
+        async uploadSubscription(subscription) {
+            try {
+                if (!subscription) return;
 
                 // Extract keys
                 const p256dh = btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh'))));
@@ -244,10 +317,12 @@
                 const result = await subResponse.json();
                 this.subscriberId = result.subscriber.id;
                 localStorage.setItem(STORAGE_KEY_SUB_ID, this.subscriberId);
+                localStorage.setItem('hypux_subscriber_id', this.subscriberId);
+                localStorage.setItem('hypwa_push_sub_endpoint', subscription.endpoint);
 
-                hypwaLog('Hyper PWA Push: Successfully subscribed to push notifications.');
+                hypwaLog('Hyper PWA Push: Successfully subscribed / synchronized push notifications.');
             } catch (err) {
-                console.error('Hyper PWA Push: Subscription failed:', err);
+                console.error('Hyper PWA Push: Subscription upload failed:', err);
             }
         }
 
