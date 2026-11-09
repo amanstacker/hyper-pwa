@@ -573,6 +573,14 @@ class HYPWA_Core_Feature_Settings {
 	                    'value' => '',
 	                ],
 	                [
+	                    'type'  => 'checkbox',
+	                    'id'    => 'hypwa_ios_prompt_auto_popup_toggle',
+	                    'name'  => 'hypwa_options[ios_prompt_auto_popup]',
+	                    'value' => HYPWA_Options::get( 'ios_prompt_auto_popup', '1' ),
+	                    'label' => esc_html__( 'Auto Display Install Prompt', 'hyper-pwa' ),
+	                    'desc'  => esc_html__( 'Automatically show the iOS Add-to-Home guide on page load. When off, it only opens via install buttons or custom triggers.', 'hyper-pwa' ),
+	                ],
+	                [
 	                    'type'  => 'text',
 	                    'id'    => 'hypwa_ios_prompt_title_input',
 	                    'name'  => 'hypwa_options[ios_prompt_title]',
@@ -1535,7 +1543,8 @@ class HYPWA_Core_Feature_Settings {
 								</div>
 
 								<!-- iOS Install Prompt Bottom Card -->
-								<div class="hypwa-ios-preview-prompt-wrap">
+								<?php $auto_popup_val = HYPWA_Options::get( 'ios_prompt_auto_popup', '1' ); ?>
+								<div class="hypwa-ios-preview-prompt-wrap" style="<?php echo ( '0' === $auto_popup_val ) ? 'display: none;' : ''; ?>">
 									<div id="hypwa-ios-preview-prompt-card" class="hypwa-ios-preview-prompt-card">
 										<div class="hypwa-ios-sheet-handle"></div>
 										<button type="button" class="hypwa-ios-preview-close" aria-label="Dismiss">&times;</button>

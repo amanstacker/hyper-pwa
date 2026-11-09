@@ -181,6 +181,7 @@ function hypwa_enqueue_service_worker() {
 				'desc'     => HYPWA_Options::get( 'ios_prompt_desc' ) ?: 'Install this app on your device for offline support and quick access.',
 				'step1'    => HYPWA_Options::get( 'ios_prompt_step1' ) ?: 'Tap the Share button [share_icon] in the browser toolbar.',
 				'step2'    => HYPWA_Options::get( 'ios_prompt_step2' ) ?: 'Scroll down and select Add to Home Screen.',
+				'auto_popup' => HYPWA_Options::get( 'ios_prompt_auto_popup', '1' ),
 			]
 		);
 

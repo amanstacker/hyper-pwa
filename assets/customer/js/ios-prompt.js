@@ -126,14 +126,6 @@
             });
         }
 
-        // Persist installation flag when user switches away from Safari to complete Add to Home Screen
-        function handleVisibilityChange() {
-            if ( document.visibilityState === 'hidden' && document.querySelector('.hypwa-ios-prompt-container') ) {
-                try { localStorage.setItem('hypwa_installed', 'true'); } catch (e) {}
-            }
-        }
-        document.addEventListener('visibilitychange', handleVisibilityChange, { once: true });
-        window.addEventListener('pagehide', handleVisibilityChange, { once: true });
     }
 
     // Expose global helper to programmatically trigger iOS prompt
@@ -141,10 +133,13 @@
         initIOSPrompt(true);
     };
 
-    // Run on DOM loaded
-    if ( document.readyState === 'loading' ) {
-        document.addEventListener('DOMContentLoaded', function() { initIOSPrompt(); });
-    } else {
-        initIOSPrompt();
+    // Run on DOM loaded if auto popup is enabled
+    var isAutoPopupEnabled = typeof hypwa_ios_prompt === 'undefined' || hypwa_ios_prompt.auto_popup !== '0';
+    if ( isAutoPopupEnabled ) {
+        if ( document.readyState === 'loading' ) {
+            document.addEventListener('DOMContentLoaded', function() { initIOSPrompt(); });
+        } else {
+            initIOSPrompt();
+        }
     }
 })();
