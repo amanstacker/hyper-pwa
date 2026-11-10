@@ -1429,41 +1429,77 @@ class HYPWA_Core_Feature_Settings {
 			],
 		] );
 		?>
+		<?php
+		// Separate top general fields (Apple Touch Icon, Status Bar Style, Splash Screens) from prompt settings
+		$top_fields    = [];
+		$section_head  = null;
+		$prompt_fields = [];
+		$in_prompt     = false;
+
+		foreach ( $accordion['fields'] as $key => $fields ) {
+			if ( $key === 0 ) continue;
+
+			if ( 'section_head' === $fields['type'] ) {
+				$section_head = $fields;
+				$in_prompt    = true;
+				continue;
+			}
+
+			if ( $in_prompt ) {
+				$prompt_fields[] = $fields;
+			} else {
+				$top_fields[] = $fields;
+			}
+		}
+
+		// 1. Render Top General Fields Full Width (Apple Touch Icon, Status Bar Style, Splash Screens)
+		foreach ( $top_fields as $fields ) {
+			HYPWA_Settings::render( $fields['type'], [
+				'id'           => $fields['id'],
+				'class'        => isset( $fields['class'] ) ? $fields['class'] : '',
+				'name'         => $fields['name'],
+				'value'        => $fields['value'],
+				'placeholder'  => '',
+				'label'        => $fields['label'],
+				'desc'         => $fields['desc'],
+				'button_label' => isset( $fields['button_label'] ) ? $fields['button_label'] : '',
+				'options'      => isset( $fields['options'] ) ? $fields['options'] : [],
+			] );
+		}
+
+		// 2. Render Full-width Section Head Banner
+		if ( $section_head ) :
+		?>
+		<div class="hypwa-section-head" style="--hypwa-sh-color: <?php echo esc_attr( $section_head['color'] ); ?>; --hypwa-sh-bg: <?php echo esc_attr( $section_head['bg'] ); ?>; margin-top: 15px;">
+			<div class="hypwa-section-head-icon">
+				<span class="dashicons <?php echo esc_attr( $section_head['icon'] ); ?>"></span>
+			</div>
+			<div>
+				<strong><?php echo esc_html( $section_head['label'] ); ?></strong>
+				<span><?php echo esc_html( $section_head['desc'] ); ?></span>
+			</div>
+		</div>
+		<?php
+		endif;
+		?>
+
+		<!-- 3. Custom Install Prompt Settings + Live iPhone Preview Layout -->
 		<div class="hypwa-aiq-layout hypwa-ios-layout">
 			<!-- Col 1: Form Fields -->
 			<div class="hypwa-aiq-fields-col hypwa-ios-fields-col">
 				<?php
-				foreach ( $accordion['fields'] as $key => $fields ) {
-					// Skip first toggle
-					if ( $key === 0 ) continue;
-
-					// Section head
-					if ( $fields['type'] === 'section_head' ) {
-						?>
-						<div class="hypwa-section-head" style="--hypwa-sh-color: <?php echo esc_attr( $fields['color'] ); ?>; --hypwa-sh-bg: <?php echo esc_attr( $fields['bg'] ); ?>;">
-							<div class="hypwa-section-head-icon">
-								<span class="dashicons <?php echo esc_attr( $fields['icon'] ); ?>"></span>
-							</div>
-							<div>
-								<strong><?php echo esc_html( $fields['label'] ); ?></strong>
-								<span><?php echo esc_html( $fields['desc'] ); ?></span>
-							</div>
-						</div>
-						<?php
-						continue;
-					}
-
+				foreach ( $prompt_fields as $fields ) {
 					HYPWA_Settings::render( $fields['type'], [
-						'id'          => $fields['id'],
-						'class'       => isset( $fields['class'] ) ? $fields['class'] : '',
-						'name'        => $fields['name'],
-						'value'       => $fields['value'],
-						'placeholder' => '',
-						'label'       => $fields['label'],
-						'desc'        => $fields['desc'],
+						'id'           => $fields['id'],
+						'class'        => isset( $fields['class'] ) ? $fields['class'] : '',
+						'name'         => $fields['name'],
+						'value'        => $fields['value'],
+						'placeholder'  => '',
+						'label'        => $fields['label'],
+						'desc'         => $fields['desc'],
 						'button_label' => isset( $fields['button_label'] ) ? $fields['button_label'] : '',
 						'options'      => isset( $fields['options'] ) ? $fields['options'] : [],
-					]);
+					] );
 				}
 				?>
 			</div>

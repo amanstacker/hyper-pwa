@@ -1725,6 +1725,15 @@ input:checked + .hypwa-option-slider { background-color: #2563eb !important; }
     gap: 36px;
 }
 
+.hypwa-ios-fields-col .hypwa-label-col {
+    width: 46%;
+    padding-right: 12px;
+}
+
+.hypwa-ios-fields-col .hypwa-input-col {
+    width: 54%;
+}
+
 .hypwa-ios-iphone-wrapper {
     position: relative;
     width: 100%;
