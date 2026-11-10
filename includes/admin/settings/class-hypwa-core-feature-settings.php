@@ -536,7 +536,8 @@ class HYPWA_Core_Feature_Settings {
 	                    'id'    => 'hypwa_apple_touch_icon_upload',
 	                    'name'  => 'hypwa_options[apple_touch_icon]',
 	                    'value' => HYPWA_Options::get('apple_touch_icon'),
-	                    'label' => esc_html__('Apple Touch Icon', 'hyper-pwa'),
+	                    'label'        => esc_html__('Apple Touch Icon', 'hyper-pwa'),
+	                    'button_label' => esc_html__('Upload', 'hyper-pwa'),
 	                    'desc'  => esc_html__('Dedicated icon for iOS/iPadOS home screens and Safari (overrides standard manifest icons). Recommended: Square PNG without transparency, 180×180 pixels. Falls back to default app icon.', 'hyper-pwa'),
 	                ],
 	                [
@@ -1460,7 +1461,8 @@ class HYPWA_Core_Feature_Settings {
 						'placeholder' => '',
 						'label'       => $fields['label'],
 						'desc'        => $fields['desc'],
-						'options'     => isset( $fields['options'] ) ? $fields['options'] : [],
+						'button_label' => isset( $fields['button_label'] ) ? $fields['button_label'] : '',
+						'options'      => isset( $fields['options'] ) ? $fields['options'] : [],
 					]);
 				}
 				?>
