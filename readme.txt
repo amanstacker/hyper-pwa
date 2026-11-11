@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/paypalme/amanstacker
 Requires PHP: 7.4
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 5.10
+Stable tag: 5.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -240,6 +240,9 @@ We actively monitor feedback and regularly release updates with bug fixes, impro
 
 == Upgrade Notice ==
 
+= 5.11 =
+Adds interactive iPhone Live Preview for iOS & Safari, new Auto Display Install Prompt toggle, persistent iOS prompt handling, and enhanced App Badging for push notifications.
+
 = 5.10 =
 Adds interactive tooltips & status badges to PWA Health Check, improved Select2 multi-select styles, and optimized push notification service worker handling.
 
@@ -256,6 +259,16 @@ Adds new Gutenberg Block, Shortcode, RTL support, and layout fixes. Updates comp
 Major update! Hyper PWA has been rebuilt from scratch with a redesigned interface, better performance, and powerful new PWA capabilities.
 
 == Changelog ==
+
+= 5.11 =
+
+* Added: Interactive realistic iPhone Live Preview for iOS & Safari settings with real-time prompt simulation.
+* Added: "Auto Display Install Prompt" toggle for iOS to control automatic prompt appearance on page load.
+* Improved: iOS Add-to-Home prompt persistence across page visits until explicitly dismissed or installed.
+* Improved: iOS & Safari settings layout — moved general settings (Apple Touch Icon, Status Bar Style, Splash Screens) to full width to prevent input squishing.
+* Improved: Media upload button label in admin settings compacted to upload icon and clean "Upload" text.
+* Improved: Web Push service worker notifications with App Badging API (setAppBadge / clearAppBadge) and live foreground tab sync.
+* Improved: Production minification and performance across admin and frontend scripts.
 
 = 5.10 =
 
