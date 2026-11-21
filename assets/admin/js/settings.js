@@ -1296,6 +1296,13 @@
         function updateIosPreview() {
             var $card = $('#hypwa-ios-preview-prompt-card');
             if ( !$card.length ) return;
+            var $promptWrap = $('.hypwa-ios-preview-prompt-wrap');
+            var isAutoPopup = $('#hypwa_ios_prompt_auto_popup_toggle').is(':checked');
+            if ( isAutoPopup ) {
+                $promptWrap.stop(true, true).fadeIn(180);
+            } else {
+                $promptWrap.stop(true, true).fadeOut(180);
+            }
 
             var title = $('#hypwa_ios_prompt_title_input').val();
             if ( !title ) {
@@ -1342,7 +1349,7 @@
             $('#hypwa-ios-preview-step2').text(step2);
         }
 
-        $(document).on('input change', '#hypwa_ios_prompt_title_input, #hypwa_ios_prompt_desc_input, #hypwa_ios_prompt_step1_input, #hypwa_ios_prompt_step2_input, #hypwa_apple_touch_icon_upload', function() {
+        $(document).on('input change', '#hypwa_ios_prompt_title_input, #hypwa_ios_prompt_desc_input, #hypwa_ios_prompt_step1_input, #hypwa_ios_prompt_step2_input, #hypwa_apple_touch_icon_upload, #hypwa_ios_prompt_auto_popup_toggle', function() {
             updateIosPreview();
         });
 

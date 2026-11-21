@@ -896,7 +896,7 @@ class HYPWA_Settings {
                 placeholder="https://example.com/wp-content/uploads/image.jpg"
             />
             <button type="button" class="hypwa-upload-btn hypwa-widget-btn-outline" data-target="<?php echo esc_attr($args['id']); ?>">
-                <span class="dashicons dashicons-upload"></span> Media Upload
+                <span class="dashicons dashicons-upload"></span> <?php echo esc_html( ! empty( $args['button_label'] ) ? $args['button_label'] : __( 'Upload', 'hyper-pwa' ) ); ?>
             </button>
         </div>
         <?php
